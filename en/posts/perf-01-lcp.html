@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Improving LCP Step by Step: The Fastest Road to Lifting Your Real Speed Measurements — ABDALLAH ABAS</title>
+<meta name="description" content="Part one of the performance series: a practical guide to improving the LCP metric — from diagnosing your responsible element to image, font and server fixes ordered by real impact, with free measurement tools.">
+<link rel="canonical" href="https://blog.abdallahabas.com/en/posts/perf-01-lcp.html">
+<link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
+<meta property="og:image" content="https://blog.abdallahabas.com/assets/images/articles/perf-01-lcp/cover.png">
+<meta property="og:image:alt" content="Improving LCP Step by Step: The Fastest Road to Lifting Your Real Speed Measurements — ABDALLAH ABAS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.abdallahabas.com/assets/images/articles/perf-01-lcp/cover.png">
+<meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Improving LCP Step by Step: The Fastest Road to Lifting Your Real Speed Measurements — ABDALLAH ABAS">
+<meta property="og:description" content="Part one of the performance series: a practical guide to improving the LCP metric — from diagnosing your responsible element to image, font and server fixes ordered by real impact, with free measurement tools.">
+<meta property="og:url" content="https://blog.abdallahabas.com/en/posts/perf-01-lcp.html">
+<meta property="og:site_name" content="ABDALLAH ABAS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/theme.css">
+<script src="/js/theme.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0XEPCGX0EL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0XEPCGX0EL');
+</script>
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="ar" href="https://blog.abdallahabas.com/posts/perf-01-lcp.html">
+<link rel="alternate" hreflang="en" href="https://blog.abdallahabas.com/en/posts/perf-01-lcp.html">
+<link rel="alternate" hreflang="x-default" href="https://blog.abdallahabas.com/posts/perf-01-lcp.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_EG">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="article:published_time" content="2026-10-27T12:00:00+02:00">
+<meta property="article:modified_time" content="2026-10-27T12:00:00+02:00">
+<meta property="article:author" content="https://abdallahabas.com">
+<meta property="article:section" content="Web Development">
+<meta property="article:tag" content="LCP">
+<meta property="article:tag" content="Core Web Vitals">
+<meta property="article:tag" content="performance">
+<meta property="article:tag" content="site speed">
+<meta property="article:tag" content="WebP">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Improving LCP Step by Step: The Fastest Road to Lifting Your Real Speed Measurements","description":"Part one of the performance series: a practical guide to improving the LCP metric — from diagnosing your responsible element to image, font and server fixes ordered by real impact, with free measurement tools.","datePublished":"2026-10-27","dateModified":"2026-10-27","inLanguage":"en","wordCount":3008,"keywords":"LCP, Core Web Vitals, performance, site speed, WebP","articleSection":"Web Development","author":{"@type":"Person","name":"ABDALLAH ABAS","url":"https://abdallahabas.com"},"publisher":{"@type":"Organization","name":"ABDALLAH ABAS","logo":{"@type":"ImageObject","url":"https://abdallahabas.com/assets/images/logo.svg"}},"mainEntityOfPage":"https://blog.abdallahabas.com/en/posts/perf-01-lcp.html","url":"https://blog.abdallahabas.com/en/posts/perf-01-lcp.html","image":["https://blog.abdallahabas.com/assets/images/articles/perf-01-lcp/cover.png"],"isPartOf":{"@type":"CreativeWorkSeries","name":"Site Performance","position":1}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://blog.abdallahabas.com/en/"},{"@type":"ListItem","position":2,"name":"Web Development","item":"https://blog.abdallahabas.com/en/category.html?c=web-dev"},{"@type":"ListItem","position":3,"name":"Improving LCP Step by Step: The Fastest Road to Lifting Your Real Speed Measurements","item":"https://blog.abdallahabas.com/en/posts/perf-01-lcp.html"}]}</script>
+</head>
+<body data-page="post" data-post="perf-01-lcp" data-lang="en">
+<a class="skip" href="#main">Skip to content</a>
+<div class="read-progress" id="readProgress" aria-hidden="true"></div>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="/en/index.html" aria-label="ABDALLAH ABAS — Blog home">
+      <img class="brand-mark" src="/assets/images/logo.svg" alt="" width="37" height="37" aria-hidden="true">
+      <span class="brand-txt"><b>ABDALLAH ABAS</b><i>The Blog</i></span>
+    </a>
+    <nav class="nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/index.html" data-nav="home">Home</a>
+      <a href="/en/archive.html" data-nav="archive">All articles</a>
+      <div class="nav-drop">
+        <button type="button" class="nav-drop-btn" id="catsBtn" aria-expanded="false" aria-haspopup="true">Categories <svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <div class="nav-menu" id="catsMenu" role="menu">
+          <a role="menuitem" href="/en/category.html?c=adsense"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg>AdSense & Earnings<span class="cnt" data-cat="adsense"></span></a>
+          <a role="menuitem" href="/en/category.html?c=seo"><svg class="ic" aria-hidden="true"><use href="#i-chart"/></svg>SEO & Indexing<span class="cnt" data-cat="seo"></span></a>
+          <a role="menuitem" href="/en/category.html?c=web-dev"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg>Web Development<span class="cnt" data-cat="web-dev"></span></a>
+          <a role="menuitem" href="/en/category.html?c=marketing"><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg>Digital Marketing<span class="cnt" data-cat="marketing"></span></a>
+          <a role="menuitem" href="/en/category.html?c=tools"><svg class="ic" aria-hidden="true"><use href="#i-wrench"/></svg>Free Tools<span class="cnt" data-cat="tools"></span></a>
+        </div>
+      </div>
+      <a href="/en/about.html" data-nav="about">About</a>
+      <a href="/en/contact.html" class="btn btn-primary btn-sm" data-nav="contact">Hire me</a>
+    </nav>
+    <div class="head-tools">
+      <button type="button" class="tool-btn" id="searchBtn" aria-label="Search the blog" aria-haspopup="dialog"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></button>
+      <button type="button" class="tool-btn" id="themeBtn" aria-label="Toggle theme (dark/light)" aria-pressed="false"><svg class="ic ic-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="ic ic-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+      <a class="lang-tag" href="/en/index.html" hreflang="ar" lang="ar" aria-label="التبديل إلى العربية">ع</a>
+      <button type="button" class="tool-btn burger" id="navBtn" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <article class="art wrap">
+
+    <header class="art-head" id="artHead"><nav class="crumbs" aria-label="Breadcrumb"><a href="/en/">Home</a><svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg><a href="/en/category.html?c=web-dev">Web Development</a><svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg><span aria-current="page">Improving LCP Step by Step: The Fastest Road to Lifting Your Real Speed Measurements</span></nav><h1 id="artTitle">Improving LCP Step by Step: The Fastest Road to Lifting Your Real Speed Measurements</h1><div class="art-meta"><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><time datetime="2026-10-27">27 October 2026</time></span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>17 min read</span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>3008 words</span></div></header>
+
+    <div class="art-cover cover-img-mode" id="artCover"><img class="art-cover-img" src="/assets/images/articles/perf-01-lcp/cover.png" alt="Improving LCP Step by Step: The Fastest Road to Lifting Your Real Speed Measurements" width="1200" height="675" fetchpriority="high"></div>
+
+    <div class="art-layout">
+      <div class="art-body prose" id="artContent"><p>The performance series opens with the metric grabbing attention first and drawing everyone&#39;s complaints: LCP, measuring when your visitor actually sees the page&#39;s main content. This metric is your site&#39;s numeric first impression, answering the question every visitor asks in the first seconds: is this site ready? In this guide we walk step by step from diagnosing your page&#39;s specific responsible element, to fixes ordered by real impact, to the measurement proving your work landed. The guide serves static-site owners and platform users alike, and every step in it costs nothing to execute.</p>
+<p><strong>What you will do in this guide:</strong></p>
+<ul><li>Diagnose your pages&#39; LCP element and know exactly why it lags</li><li>Apply fixes ordered by impact — images, then fonts, then loading order</li><li>Measure your result on real visitors&#39; data, not a clean test</li><li>Build a routine protecting this metric with every new publish</li></ul>
+<h2 id="what-lcp-actually-measures-a-definition-everyone-understands">What LCP Actually Measures: A Definition Everyone Understands</h2>
+<p>LCP measures the time from page load start until the largest visible element in the visitor&#39;s first screen appears — usually the article&#39;s cover image, its main heading, or a large text block. The system computes the metric from real visitors&#39; experiences and takes the number achieved by seventy-five percent of your visits: the official target is under two and a half seconds, two-and-a-half to four needs improvement, and above four is poor, losing visitors before they read a single letter.</p>
+<p>Whoever understands this definition well realizes LCP is not your site&#39;s average speed but the speed of your slowest quarter of visitors — improving it means helping your worst cases: the visitor on a mid-range phone, weak network, congested hour. This angle defines every later decision: real optimization targets the actual device and network, not your fast laboratory. I explained the full basis of the three metrics in <a href="/en/posts/core-web-vitals-speed.html">the comprehensive Core Web Vitals guide</a>, worth reading before or right after this guide, and for anyone preparing a site for approval these fixes are part of <a href="/en/posts/adsense-approval-checklist.html">the pre-submission checklist</a>.</p>
+<h2 id="step-one-diagnose-your-pages-lcp-element">Step One: Diagnose Your Page&#39;s LCP Element</h2>
+<p>Do not start fixing before diagnosing — every page has a different LCP element with different lag causes: open <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a>, enter a representative article URL, and find in the diagnostics the &quot;largest contentful paint element&quot; line naming the responsible element and its lag contribution share. Then open Chrome&#39;s developer tools, go to the performance panel, and run a measurement in a throttled environment — you will see the element&#39;s loading bar with its stage details: when requested, when arrived, when shown.</p>
+<p>This diagnosis settles your path into three scenarios: a cover image means the images-fix path; a text element means the fonts-and-render path; both lagging behind competing requests means the loading-order path. One documented diagnostic hour across three representative pages saves you days of random experimentation — and log your numbers before fixing in a measurement sheet, so you compare afterward honestly, not by impression.</p>
+<h2 id="image-fixes-the-largest-gain-on-most-sites">Image Fixes: The Largest Gain on Most Sites</h2>
+<p>The cover image is the LCP element on most article pages and often the largest file on the whole page — start with three ordered fixes: a modern compressed format like WebP cutting size roughly in half while keeping quality; display dimensions matching the element&#39;s actual maximum width in your template, not multiples of it; and high loading priority telling the browser this is the first request, not the last. On our static sites these are attributes on the image tag, and their effect shows in the test immediately.</p>
+<p>Add two decisions many get wrong: never lazy-load the cover — lazy-loading the first element delays its own appearance; and never place your image inside an element appearing late through animation or JavaScript conditions. Images inside the article body suit lazy loading perfectly, sitting below the fold — distinguishing the image seen now from the image seen later is the essence of image performance, a one-minute decision per image repaying itself on every visit.</p>
+<h2 id="font-fixes-preventing-the-white-gap">Font Fixes: Preventing the White Gap</h2>
+<p>The beautiful custom font costs you a waiting moment: text does not show until the font file arrives, so your page opens on emptiness then jumps to text — and that delay rises straight into LCP. The treatment has three layers: cut font weights to what you actually use; enable the swap display showing text in the system font immediately then replacing it on arrival; and preload the font file if the font itself is your pages&#39; LCP element.</p>
+<p>In Arabic templates pick one font family with two weights — regular and bold — as we use here: it cuts requests and size together and gives a consistent identity. And confirm your fonts are served with long cache headers so the returning visitor does not reload them — this lifts internal-navigation speed, which the system reads across the whole user experience metrics.</p>
+<h2 id="loading-order-what-competes-with-your-lcp-element">Loading Order: What Competes With Your LCP Element</h2>
+<p>After images and fonts comes the deeper question: what happens before your LCP element&#39;s request? Every early request crowding it — template scripts, external styles, tracking tools — delays its start. Open the network panel in developer tools, sort requests by time, and you will see the congestion line preceding your image — start reducing: defer every script not essential to first render, cut external requests to those whose results you actually read, and merge small scattered styles if you manage them manually.</p>
+<p>On static sites this stage is usually short because our scripts are few, but add the third-party scripts added over time: analytics, later ads, share buttons. Each one&#39;s price is fractions of a second cut from LCP, and the sum when accumulated hijacks your numbers. My standing practical rule: every new addition passes one question — what does it add to the visitor and what does it cut from speed? Whoever cannot answer the first does not deserve the second.</p>
+<div class="tbl-wrap"><table><thead><tr><th>Fix</th><th>Effect on LCP</th><th>Effort</th></tr></thead><tbody><tr><td>Compress cover, convert to WebP</td><td>Very large on image pages</td><td>Minutes per image</td></tr><tr><td>Loading priority for the first element</td><td>Large</td><td>One code line</td></tr><tr><td>Preloading the used font</td><td>Large on text pages</td><td>One header line</td></tr><tr><td>Deferring non-critical scripts</td><td>Medium to large</td><td>Script list review</td></tr><tr><td>Resizing images to actual display</td><td>Medium</td><td>Set at upload</td></tr></tbody></table></div>
+<h2 id="server-and-distribution-the-floor-beneath-everything">Server and Distribution: The Floor Beneath Everything</h2>
+<p>Before everything above stands a floor the page never shows: the server&#39;s first response time — the page starts loading only after the server answers. Our static sites on a global distribution network answer from the visitor&#39;s nearest point, closing this floor automatically at best shape; struggling shared hosting starts everything late however good your images and fonts. If your server response sits above a few tenths of a second in measurements, fix it first — everything else builds on it.</p>
+<p>For traditional hosting, the available gradual solution: a free distribution network in front of your site caching your static files and serving them from near points, or moving to static hosting if your site needs no live server at all — most text blogs&#39; case. This architectural decision outweighs all image fixes combined on geographically spread audiences: proximity servers are the difference between a Gulf visitor and a Moroccan visitor feeling the same speed. I explained the static philosophy in <a href="/en/posts/adsense-road-01-foundations.html">the Road to AdSense foundations part</a>.</p>
+<h2 id="a-real-mobile-case-lcp-on-phone-pages">A Real Mobile Case: LCP on Phone Pages</h2>
+<p>The mobile page is not a shrunken desktop copy but a wholly different environment: variable network, slower-processing device, and a screen reordering elements — the LCP element itself may change. So never trust a desktop test result for your pages: always run the mobile profile in PageSpeed, and check your site from your phone on real data once every two weeks — this live check reveals sensory slowness no simulation shows.</p>
+<p>The same fixes apply to mobile with reordered priority: image compression leads because the network is slower; script reduction follows because processing is weaker; fonts third because text display is usually the mobile screen&#39;s LCP element. Whoever fixes for mobile first finds desktop fast automatically — the reverse is not true; make the mobile environment your actual development environment for the rest of this performance series.</p>
+<h2 id="simple-automation-protecting-lcp-without-daily-burden">Simple Automation: Protecting LCP Without Daily Burden</h2>
+<p>Once your site is fixed, preventing relapse matters more than further improvement — protection here is simple procedures merged into your routine: a compression tool processing every image at upload before publishing so no raw image ever reaches the site; a publish checklist including a quick PageSpeed check before announcing the article; and a monthly review reading the user experience report, alerting on any early negative trend.</p>
+<p>With these three, performance turns from a recurring project into a permanent site property: every new article is born on the old ones&#39; standards, and the decline waiting for many sites months after launch finds no gap to enter yours. This is the real meaning of performance management — a small maintenance system working behind the scenes protecting a digital asset built from months of work.</p>
+<h2 id="measuring-after-fixing-proving-you-won">Measuring After Fixing: Proving You Won</h2>
+<p>After every fix batch, measure in two places: lab testing via PageSpeed seeing each change&#39;s direct effect, and field data in Search Console&#39;s user experience report seeing its effect on real visitors across weeks. The test answers: did I improve technically? The field answers: did visitors feel it? Both answers are required — a lab improvement with no real reflection means you fixed a state your visitors never live; field lag is normal since it accumulates over two to four weeks.</p>
+<p>Document in your measurement sheet: the change date, what you changed, and the LCP number before and after in testing — this log turns your site from things-done into understood-impact decisions, teaching you which fixes deserve repeating in your coming sites. After two or three rounds your site&#39;s pattern appears: its standing pain point, the tools that actually move it — and then performance management becomes an organized habit, not a recurring emergency campaign.</p>
+<h2 id="real-scenarios-three-sites-three-paths">Real Scenarios: Three Sites, Three Paths</h2>
+<p>To fix the method, imagine three recurring cases. Site one: a static blog with partially compressed images — its LCP element is an oversized cover; its path is short: convert covers to WebP at correct dimensions with loading priority, and a big jump lands in one day. Site two: a platform site loaded with tracking plugins — its element is an image too, but preceded by a script queue; its path starts with inventorying plugins and deferring the non-essential before touching any image, because the image is not guilty in this case.</p>
+<p>Site three: a text site with no large images — its LCP element is the main heading text waiting for a custom font; its path lives entirely in the fonts layer: preload, swap display, weight reduction, then reviewing the request queue. All three started from the same metric and ended in completely different paths — this is the real lesson of diagnosis: no unified recipe, but reading your own position then pulling the right thread from its start. Every guide in this series hands you the threads and their order.</p>
+<h2 id="what-comes-after-lcp-the-series-remaining-map">What Comes After LCP: The Series&#39; Remaining Map</h2>
+<p>Fixing LCP opens the rest of the metrics&#39; doors — the series builds on it: part two covers INP, the interaction-response metric suffering from the same scripts you deferred here; part three covers CLS and element stability served by the same reserved dimensions. Whoever completes this guide owns half the performance road; the rest is the same methodology applied to other metrics.</p>
+<p>And a direct earnings connection worth repeating: every second cut from first appearance cuts part of your coming ads&#39; exposure opportunities, and the visitor seeing content quickly walks deeper into your site where your ad units live. Performance is not a technical chapter separate from your site&#39;s viability — it is the structure everything else stands on; that is why the series opened with it.</p>
+<h2 id="the-short-tool-list-for-your-journey">The Short Tool List For Your Journey</h2>
+<p>You need no massive toolkit for this path — three places suffice a whole site: PageSpeed Insights for quick measurement and diagnosis; Chrome developer tools for network-bar depth and recording; and the user experience report in Search Console for weekly field tracking. Add the free WebPageTest service when you need measuring from different geographies and networks — these four cover everything a mid-size site needs of diagnosis and follow-up without one subscription.</p>
+<p>The rule in using them is discipline, not volume: measure before and after every batch, log numbers in one sheet, read the field monthly. Whoever scatters themselves across ten tools loses the thread; whoever holds the assigned three builds a routine showing stable numbers across months — and that is the goal: managed performance, not chased numbers.</p>
+<h2 id="choosing-your-three-representative-pages">Choosing Your Three Representative Pages</h2>
+<p>Choosing representative pages decides the honesty of all later measurements — open your performance report and pick: the most visited page, your longest image-heavy article, and your newest published one. These three represent your site&#39;s three living patterns: the interface, the heavy page, and the new page repeating thousands of times ahead. Log them in your measurement sheet by name and link and never change them, so your comparisons stay on the same base.</p>
+<p>As the site grows, add a fourth page each quarter representing any new pattern appearing: an active category page, a service page, a new long guide. This quiet evolution keeps your measurements addressing your site&#39;s reality, not its memories — among the finest performance-management details everyone neglects then wonders why their numbers say nothing real.</p>
+<p><img src="/assets/images/articles/perf-01-lcp/infographic-en.png" alt="LCP improvement infographic: diagnosis and fixes ordered by impact" loading="lazy"></p>
+<h2 id="common-mistakes-in-the-lcp-race">Common Mistakes in the LCP Race</h2>
+<p>The most common: early surrender after fixing images, when the metric does not reach target and frustration takes over — the truth is correct ordering usually needs three batches: images, then fonts and ordering, then server. A second mistake: fixing only the homepage and forgetting article pages where visitors actually arrive from search — the most important measurement sits on content pages, not the display interface. A third: over-optimizing beyond need, removing every image or shrinking texts — the number improves while the experience breaks, for the metric serves the experience, never rules it.</p>
+<p>The most dangerous of all: full surrender under the claim that Google does not actually count speed in ranking — confusing speed being a supporting factor with it having no effect: the visitor leaving before appearance read nothing, watched no ad, shared nothing, and losing them is real in every site metric regardless of your search positions. Speed is an investment in every visitor&#39;s stay — that alone suffices as reason to work on the metric without waiting for Google&#39;s verdict.</p>
+<h2 id="questions-from-those-starting-optimization">Questions From Those Starting Optimization</h2>
+<h3 id="my-lcp-element-is-text-and-image-together-which-do-i-fix">My LCP element is text and image together — which do I fix?</h3>
+<p>Check the diagnosis: it names the winning element at measurement time, often the text appearing before the image — start with fonts, preload, and loading order. But if the image exceeds the text in size many times, priority goes to it as the bigger obstacle. The practical rule: fix the heaviest first then re-measure — the metric improves by ordering, not by stacking every fix at once.</p>
+<h3 id="is-hitting-the-target-in-lab-testing-enough">Is hitting the target in lab testing enough?</h3>
+<p>Testing is necessary but insufficient — the official metric reads from real visitors with their diverse devices and networks: you may hit target in your lab while failing in the field due to weak-network or mid-range visitors. Make the test the quick verification gate after every change, and the field the final judgment reference across weeks — this balance saves you from resting on lab numbers not living your visitors&#39; reality.</p>
+<h3 id="how-many-pages-do-i-measure-before-judging-my-site">How many pages do I measure before judging my site?</h3>
+<p>Measure three representative pages minimum: homepage, one long image-heavy article, one recent short article — covering your core page patterns. A site is judged by the pages receiving its search visitors, not its best pages — the article page is your site&#39;s performance identity card, and measuring it weekly suffices for monitoring the whole performance health without drowning in per-page measurement.</p>
+<h3 id="will-ads-later-affect-the-lcp-i-improved">Will ads later affect the LCP I improved?</h3>
+<p>Yes, if misplaced — keep their positions away from the first element and never crowding its loading, with pre-reserved dimensions protecting page stability as well. Wisely placed ads do not cancel your improvements but coexist with them: the site fast before ads is the most capable of bearing their weight without crossing metric limits. Fix your base first, then activate ads in calculated positions as the safe activation plans explain.</p>
+<h2 id="guide-summary">Guide Summary</h2>
+<p>Improving LCP is a four-stage path: diagnose your element and causes with free tools; fix images before fonts before loading order; review the server floor if late; then measure without pause on lab and field together until your number settles safely. In every stage this guide&#39;s list guides you by impact, not noise — correct ordering is half the success in performance, and the other half is honest measurement proving your effort reached your visitors, not just lab numbers.</p>
+<p>Keep this guide&#39;s checklist beside your publishing routine, and every new article will inherit the standard instead of testing it. The three biggest fixes remain: a compressed cover with loading priority, a font with swap display and preload, and deferred scripts never crowding the first element — the trio carrying most of the improvement on nearly every site.</p>
+<p>Whoever applies this guide to their three representative pages lands a clear measurable jump within a week, then turns application into a habit with every new publish. The series&#39; next part moves to the INP interaction metric and its improvement road — follow the parts in sequence and you will find your site at their end on standards matching big invested platforms: a real difference the visitor sees before any measurement system does.</p></div>
+      <aside class="art-toc" id="tocBox" aria-label="Article TOC">
+        <h2>In this article</h2>
+        <nav id="tocNav"><a href="#what-lcp-actually-measures-a-definition-everyone-understands" class="toc-l2">What LCP Actually Measures: A Definition Everyone Understands</a><a href="#step-one-diagnose-your-pages-lcp-element" class="toc-l2">Step One: Diagnose Your Page&#39;s LCP Element</a><a href="#image-fixes-the-largest-gain-on-most-sites" class="toc-l2">Image Fixes: The Largest Gain on Most Sites</a><a href="#font-fixes-preventing-the-white-gap" class="toc-l2">Font Fixes: Preventing the White Gap</a><a href="#loading-order-what-competes-with-your-lcp-element" class="toc-l2">Loading Order: What Competes With Your LCP Element</a><a href="#server-and-distribution-the-floor-beneath-everything" class="toc-l2">Server and Distribution: The Floor Beneath Everything</a><a href="#a-real-mobile-case-lcp-on-phone-pages" class="toc-l2">A Real Mobile Case: LCP on Phone Pages</a><a href="#simple-automation-protecting-lcp-without-daily-burden" class="toc-l2">Simple Automation: Protecting LCP Without Daily Burden</a><a href="#measuring-after-fixing-proving-you-won" class="toc-l2">Measuring After Fixing: Proving You Won</a><a href="#real-scenarios-three-sites-three-paths" class="toc-l2">Real Scenarios: Three Sites, Three Paths</a><a href="#what-comes-after-lcp-the-series-remaining-map" class="toc-l2">What Comes After LCP: The Series&#39; Remaining Map</a><a href="#the-short-tool-list-for-your-journey" class="toc-l2">The Short Tool List For Your Journey</a><a href="#choosing-your-three-representative-pages" class="toc-l2">Choosing Your Three Representative Pages</a><a href="#common-mistakes-in-the-lcp-race" class="toc-l2">Common Mistakes in the LCP Race</a><a href="#questions-from-those-starting-optimization" class="toc-l2">Questions From Those Starting Optimization</a><a href="#my-lcp-element-is-text-and-image-together-which-do-i-fix" class="toc-l3">My LCP element is text and image together — which do I fix?</a><a href="#is-hitting-the-target-in-lab-testing-enough" class="toc-l3">Is hitting the target in lab testing enough?</a><a href="#how-many-pages-do-i-measure-before-judging-my-site" class="toc-l3">How many pages do I measure before judging my site?</a><a href="#will-ads-later-affect-the-lcp-i-improved" class="toc-l3">Will ads later affect the LCP I improved?</a><a href="#guide-summary" class="toc-l2">Guide Summary</a></nav>
+      </aside>
+    </div>
+
+    <div class="ad-slot" data-ad-slot="inArticle"></div>
+
+    <footer class="art-foot" id="artFoot">
+      <div class="art-extras" id="artExtras"><section class="series-box" aria-label="Series"><header class="series-head"><span class="series-chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>Series</span><b>Site Performance</b><span class="series-pos">Part 1 of 20</span></header><ol class="series-parts"><li class="here" aria-current="step"><span>Part 1 — Improving LCP Step by Step: The Fastest Road to Lifting Your Real Speed Measurements<em class="here-tag">You are here</em></span></li></ol><p class="series-soon"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-info"/></svg>The remaining parts are in preparation — follow the blog</p><div class="series-nav"><span></span><span></span></div></section>
+<section class="cta-strip" aria-label="Get it done for you"><div class="cta-strip-in"><div class="cta-strip-txt"><b>Get it done for you</b><p>I offer paid implementation of what this blog explains: AdSense readiness, SEO optimization, and fast website builds — with a written scope and a clear price before we start.</p><small>You deal with me directly — no middlemen and no commitment until we agree on details</small></div><a class="btn btn-primary" href="/en/contact.html?service=web-dev">Request this service<svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+<section class="offer-zone" aria-label="Current special offers"><h2 class="offer-title">Current special offers</h2><div class="offer-cards"><article class="offer-card"><span class="offer-badge">Most requested</span><b>Get your site AdSense-ready</b><p>A full review of content, legal pages, navigation and speed, plus a clear content plan — so you submit your AdSense request from the strongest position.</p><a class="offer-link" href="/en/contact.html?service=adsense-prep">Request this service<svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a></article><article class="offer-card"><span class="offer-badge">Limited monthly slots</span><b>A fast, SEO-ready website from scratch</b><p>I build a clean, fast site with solid structure, ready for indexing and ads — committed delivery, fully set up on your own domain.</p><a class="offer-link" href="/en/contact.html?service=web-dev">Request this service<svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a></article></div><p class="offer-note">Direct offers from me — valid while the available slots last</p></section></div>
+      <div id="artTags"><div class="tag-row"><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>LCP</span><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>Core Web Vitals</span><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>performance</span><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>site speed</span><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>WebP</span></div></div>
+      <div class="share-row" id="shareRow"><span class="lbl">Share:</span><button class="btn btn-ghost btn-sm" data-share="copy"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-copy"/></svg>Copy link</button><a class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer" href="https://wa.me/?text=Improving%20LCP%20Step%20by%20Step%3A%20The%20Fastest%20Road%20to%20Lifting%20Your%20Real%20Speed%20Measurements%20%E2%80%94%20https%3A%2F%2Fblog.abdallahabas.com%2Fen%2Fposts%2Fperf-01-lcp.html"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>WhatsApp</a><a class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer" href="https://t.me/share/url?url=https%3A%2F%2Fblog.abdallahabas.com%2Fen%2Fposts%2Fperf-01-lcp.html&text=Improving%20LCP%20Step%20by%20Step%3A%20The%20Fastest%20Road%20to%20Lifting%20Your%20Real%20Speed%20Measurements"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-telegram"/></svg>Telegram</a><a class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=Improving%20LCP%20Step%20by%20Step%3A%20The%20Fastest%20Road%20to%20Lifting%20Your%20Real%20Speed%20Measurements&url=https%3A%2F%2Fblog.abdallahabas.com%2Fen%2Fposts%2Fperf-01-lcp.html">X</a></div>
+      <p class="license-note"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Content by ABDALLAH ABAS — quoting is allowed with attribution and a link to the article page.</span></p>
+      <div class="related">
+        <h2>Related articles</h2>
+        <div class="cards" id="relatedBox"><article class="card"><div class="card-cover"><img src="/assets/images/articles/core-web-vitals-speed/cover.png" alt="" loading="lazy" width="600" height="400"></div><div class="card-body"><span class="chip chip-acc card-cat">Web Development</span><h3><a class="card-link" href="/en/posts/core-web-vitals-speed.html">Core Web Vitals Explained: The Three Metrics That Tell You How Fast Your Site Really Is</a></h3><p>A practical guide to the three Core Web Vitals: LCP, INP and CLS — what each one measures, how to check yours for free, and real fixes that improve your site speed and visitor experience.</p><div class="card-meta"><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><time datetime="2026-10-12">12 October 2026</time></span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>16 min read</span></div></div></article><article class="card"><div class="card-cover"><img src="/assets/images/articles/adsense-road-03-essential-pages/cover.png" alt="" loading="lazy" width="600" height="400"></div><div class="card-body"><span class="chip chip-acc card-cat">AdSense &amp; Earnings</span><h3><a class="card-link" href="/en/posts/adsense-road-03-essential-pages.html">The Road to AdSense (3): The Essential Pages — from About to Privacy Policy</a></h3><p>Part three of the Road to AdSense series: the four pages reviewers check before your articles — About, Contact, Privacy Policy, and Terms — exactly what to write on each, where to place them, and the mistakes that get sites rejected over them.</p><div class="card-meta"><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><time datetime="2026-10-27">27 October 2026</time></span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>17 min read</span></div></div></article><article class="card"><div class="card-cover"><img src="/assets/images/articles/adsense-road-04-niche-choice/cover.png" alt="" loading="lazy" width="600" height="400"></div><div class="card-body"><span class="chip chip-acc card-cat">AdSense &amp; Earnings</span><h3><a class="card-link" href="/en/posts/adsense-road-04-niche-choice.html">The Road to AdSense (4): Choosing a Niche — Between Your Passion and What Advertisers Pay For</a></h3><p>Part four of the Road to AdSense series: a practical frame of three tests for choosing the right niche — real experience, search demand, advertiser interest — with analysis of real decision examples and a decision table that stops bad starts.</p><div class="card-meta"><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><time datetime="2026-10-27">27 October 2026</time></span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>18 min read</span></div></div></article></div>
+      </div>
+      <div class="ad-slot" data-ad-slot="belowPost"></div>
+  </article>
+
+  <section class="comments-sec" id="commentsSec" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Comments</h2>
+        <span class="chip" id="cCount"></span>
+      </div>
+      <div id="commentsBox">
+        <div id="cAuthSlot"></div>
+        <div id="cListSlot"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="/en/index.html">
+        <img class="brand-mark" src="/assets/images/logo.svg" alt="" width="37" height="37" aria-hidden="true">
+        <span class="brand-txt"><b>ABDALLAH ABAS</b><i>The Blog</i></span>
+      </a>
+      <p>An Arabic blog about online earning, SEO and web building — tested, clear content, no fake promises.</p>
+      <div class="foot-social" id="footSocial"></div>
+    </div>
+    <nav class="foot-col" aria-label="Blog links">
+      <h3>Blog</h3>
+      <a href="/en/index.html">Home</a>
+      <a href="/en/archive.html">All articles</a>
+      <a href="/en/about.html">About</a>
+      <a href="/en/contact.html">Hire me</a>
+    </nav>
+    <nav class="foot-col" aria-label="Services">
+      <h3>Services</h3>
+      <div id="footServices"></div>
+    </nav>
+    <nav class="foot-col" aria-label="Legal and other links">
+      <h3>Legal & tools</h3>
+      <a href="/en/privacy.html">Privacy Policy</a>
+      <a href="/en/terms.html">Terms of Use</a>
+      <a href="/en/disclosure.html">Affiliate Disclosure</a>
+      <a href="/en/disclaimer.html">Disclaimer</a>
+      <a href="/feed-en.xml">RSS feed</a>
+      <a href="https://tools.abdallahabas.com" target="_blank" rel="noopener noreferrer">Tools platform</a>
+    </nav>
+  </div>
+  <div class="wrap foot-bottom">
+    <p>© <span id="footYear">2026</span> ABDALLAH ABAS — All rights reserved.</p>
+    <p><a href="https://abdallahabas.com" target="_blank" rel="noopener noreferrer">Main website</a><span class="sep">·</span><a href="https://blog.abdallahabas.com/sitemap.xml">Sitemap</a></p>
+  </div>
+</footer>
+
+<div class="search-layer" id="searchLayer" hidden role="dialog" aria-modal="true" aria-label="Blog search">
+  <div class="search-panel">
+    <div class="search-bar">
+      <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+      <input id="searchInput" type="search" placeholder="Search articles…" autocomplete="off">
+      <button type="button" class="tool-btn" id="searchClose" aria-label="Close search"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="search-hints" id="searchHints"><span>Try:</span>
+      <button type="button" data-q="adsense">AdSense</button>
+      <button type="button" data-q="seo">SEO</button>
+      <button type="button" data-q="speed">Speed</button>
+      <button type="button" data-q="content">Content</button>
+    </div>
+    <div class="search-results" id="searchResults" role="listbox" aria-label="Search results"></div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+<dialog class="aa-dlg" id="aaDlg"><div class="dlg-card" id="aaDlgCard"></div></dialog>
+
+<script src="/js/config.js"></script>
+<script src="/js/ads.js"></script>
+<script src="/js/i18n.js"></script>
+<script src="/js/icons.js"></script>
+<script src="/js/markdown.js"></script>
+<script src="/js/manifest.js"></script>
+<script src="/js/articles.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/comments.js"></script>
+<script src="/js/post-enhance.js"></script>
+</body>
+</html>

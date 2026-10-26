@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>SEO Foundations (1): How Search Engines Work — Crawling, Indexing and Ranking in Plain Language — ABDALLAH ABAS</title>
+<meta name="description" content="Part one of the SEO foundations series: a simple explanation of the search engine&#39;s three stages from crawling to indexing to ranking, and why understanding them matters to every site owner wanting Google traffic.">
+<link rel="canonical" href="https://blog.abdallahabas.com/en/posts/seo-foundations-01-how-search-works.html">
+<link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
+<meta property="og:image" content="https://blog.abdallahabas.com/assets/images/articles/seo-foundations-01-how-search-works/cover.png">
+<meta property="og:image:alt" content="SEO Foundations (1): How Search Engines Work — Crawling, Indexing and Ranking in Plain Language — ABDALLAH ABAS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.abdallahabas.com/assets/images/articles/seo-foundations-01-how-search-works/cover.png">
+<meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEO Foundations (1): How Search Engines Work — Crawling, Indexing and Ranking in Plain Language — ABDALLAH ABAS">
+<meta property="og:description" content="Part one of the SEO foundations series: a simple explanation of the search engine&#39;s three stages from crawling to indexing to ranking, and why understanding them matters to every site owner wanting Google traffic.">
+<meta property="og:url" content="https://blog.abdallahabas.com/en/posts/seo-foundations-01-how-search-works.html">
+<meta property="og:site_name" content="ABDALLAH ABAS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/theme.css">
+<script src="/js/theme.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0XEPCGX0EL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0XEPCGX0EL');
+</script>
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="ar" href="https://blog.abdallahabas.com/posts/seo-foundations-01-how-search-works.html">
+<link rel="alternate" hreflang="en" href="https://blog.abdallahabas.com/en/posts/seo-foundations-01-how-search-works.html">
+<link rel="alternate" hreflang="x-default" href="https://blog.abdallahabas.com/posts/seo-foundations-01-how-search-works.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_EG">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="article:published_time" content="2026-10-26T12:00:00+02:00">
+<meta property="article:modified_time" content="2026-10-26T12:00:00+02:00">
+<meta property="article:author" content="https://abdallahabas.com">
+<meta property="article:section" content="SEO &amp; Indexing">
+<meta property="article:tag" content="SEO">
+<meta property="article:tag" content="search engines">
+<meta property="article:tag" content="crawling">
+<meta property="article:tag" content="indexing">
+<meta property="article:tag" content="search ranking">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"SEO Foundations (1): How Search Engines Work — Crawling, Indexing and Ranking in Plain Language","description":"Part one of the SEO foundations series: a simple explanation of the search engine's three stages from crawling to indexing to ranking, and why understanding them matters to every site owner wanting Google traffic.","datePublished":"2026-10-26","dateModified":"2026-10-26","inLanguage":"en","wordCount":3055,"keywords":"SEO, search engines, crawling, indexing, search ranking","articleSection":"SEO & Indexing","author":{"@type":"Person","name":"ABDALLAH ABAS","url":"https://abdallahabas.com"},"publisher":{"@type":"Organization","name":"ABDALLAH ABAS","logo":{"@type":"ImageObject","url":"https://abdallahabas.com/assets/images/logo.svg"}},"mainEntityOfPage":"https://blog.abdallahabas.com/en/posts/seo-foundations-01-how-search-works.html","url":"https://blog.abdallahabas.com/en/posts/seo-foundations-01-how-search-works.html","image":["https://blog.abdallahabas.com/assets/images/articles/seo-foundations-01-how-search-works/cover.png"],"isPartOf":{"@type":"CreativeWorkSeries","name":"SEO Foundations","position":1}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://blog.abdallahabas.com/en/"},{"@type":"ListItem","position":2,"name":"SEO & Indexing","item":"https://blog.abdallahabas.com/en/category.html?c=seo"},{"@type":"ListItem","position":3,"name":"SEO Foundations (1): How Search Engines Work — Crawling, Indexing and Ranking in Plain Language","item":"https://blog.abdallahabas.com/en/posts/seo-foundations-01-how-search-works.html"}]}</script>
+</head>
+<body data-page="post" data-post="seo-foundations-01-how-search-works" data-lang="en">
+<a class="skip" href="#main">Skip to content</a>
+<div class="read-progress" id="readProgress" aria-hidden="true"></div>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="/en/index.html" aria-label="ABDALLAH ABAS — Blog home">
+      <img class="brand-mark" src="/assets/images/logo.svg" alt="" width="37" height="37" aria-hidden="true">
+      <span class="brand-txt"><b>ABDALLAH ABAS</b><i>The Blog</i></span>
+    </a>
+    <nav class="nav" id="siteNav" aria-label="Main navigation">
+      <a href="/en/index.html" data-nav="home">Home</a>
+      <a href="/en/archive.html" data-nav="archive">All articles</a>
+      <div class="nav-drop">
+        <button type="button" class="nav-drop-btn" id="catsBtn" aria-expanded="false" aria-haspopup="true">Categories <svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <div class="nav-menu" id="catsMenu" role="menu">
+          <a role="menuitem" href="/en/category.html?c=adsense"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg>AdSense & Earnings<span class="cnt" data-cat="adsense"></span></a>
+          <a role="menuitem" href="/en/category.html?c=seo"><svg class="ic" aria-hidden="true"><use href="#i-chart"/></svg>SEO & Indexing<span class="cnt" data-cat="seo"></span></a>
+          <a role="menuitem" href="/en/category.html?c=web-dev"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg>Web Development<span class="cnt" data-cat="web-dev"></span></a>
+          <a role="menuitem" href="/en/category.html?c=marketing"><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg>Digital Marketing<span class="cnt" data-cat="marketing"></span></a>
+          <a role="menuitem" href="/en/category.html?c=tools"><svg class="ic" aria-hidden="true"><use href="#i-wrench"/></svg>Free Tools<span class="cnt" data-cat="tools"></span></a>
+        </div>
+      </div>
+      <a href="/en/about.html" data-nav="about">About</a>
+      <a href="/en/contact.html" class="btn btn-primary btn-sm" data-nav="contact">Hire me</a>
+    </nav>
+    <div class="head-tools">
+      <button type="button" class="tool-btn" id="searchBtn" aria-label="Search the blog" aria-haspopup="dialog"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></button>
+      <button type="button" class="tool-btn" id="themeBtn" aria-label="Toggle theme (dark/light)" aria-pressed="false"><svg class="ic ic-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="ic ic-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+      <a class="lang-tag" href="/en/index.html" hreflang="ar" lang="ar" aria-label="التبديل إلى العربية">ع</a>
+      <button type="button" class="tool-btn burger" id="navBtn" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <article class="art wrap">
+
+    <header class="art-head" id="artHead"><nav class="crumbs" aria-label="Breadcrumb"><a href="/en/">Home</a><svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg><a href="/en/category.html?c=seo">SEO &amp; Indexing</a><svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg><span aria-current="page">SEO Foundations (1): How Search Engines Work — Crawling, Indexing and Ranking in Plain Language</span></nav><h1 id="artTitle">SEO Foundations (1): How Search Engines Work — Crawling, Indexing and Ranking in Plain Language</h1><div class="art-meta"><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><time datetime="2026-10-26">26 October 2026</time></span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>17 min read</span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>3055 words</span></div></header>
+
+    <div class="art-cover cover-img-mode" id="artCover"><img class="art-cover-img" src="/assets/images/articles/seo-foundations-01-how-search-works/cover.png" alt="SEO Foundations (1): How Search Engines Work — Crawling, Indexing and Ranking in Plain Language" width="1200" height="675" fetchpriority="high"></div>
+
+    <div class="art-layout">
+      <div class="art-body prose" id="artContent"><p>Before debating any SEO tool or applying any advice, you need the full story behind every search you make on Google: how Google found your page, how it understood its topic, and why it placed it in this position and no other. That story has three sequential stages named crawling, indexing, and ranking — whoever understands them reads every SEO problem in the correct language and knows which step fixes which problem, instead of applying random tips to a site whose failure point they do not know. This first part of the SEO foundations series builds that base without complicated jargon, using examples from real sites I worked on.</p>
+<p><strong>What you will do in this part:</strong></p>
+<ul><li>Understand the search engine&#39;s three stages in correct order</li><li>Know the real difference between a discovered page and an indexed one</li><li>Diagnose your site&#39;s problems at the right stage instead of guessing</li><li>Build a clean base anchoring every coming SEO decision</li></ul>
+<h2 id="stage-one-crawling-discovering-your-pages">Stage One: Crawling — Discovering Your Pages</h2>
+<p>Crawling is the process of automated programs — spiders or crawlers — traveling web pages, following links from page to page and carrying their content to Google&#39;s servers for analysis. The crawler knows your site through two roads only: a link reaching it from an already-indexed site, or a sitemap you submitted directly. That is why a new blog with no healthy internal links and no sitemap may wait weeks for the first visit, while another blog reached by links is discovered within hours — the difference is not magic but a clear link structure guiding the crawler page to page.</p>
+<p>Three things practically block crawling: a robots.txt wrongly blocking sections, missing internal links leaving some pages isolated with no road to them, and struggling hosting slowing page responses until the crawler leaves unfinished. Everything you need to tune this stage takes three steps: a fresh sitemap submitted in Search Console, internal links connecting every page to the site network, and a clean robots.txt blocking only what you truly want blocked. I explained the implementation step by step in <a href="/en/posts/search-console-first-steps.html">the Search Console beginner guide</a>.</p>
+<h2 id="stage-two-indexing-understanding-and-storing-your-pages">Stage Two: Indexing — Understanding and Storing Your Pages</h2>
+<p>Indexing is the next step after crawling: Google analyzes the page&#39;s content, understands its topic, and adds it to its massive index — the database from which search results are pulled. A discovered-but-unindexed page is one the crawler visited but that has not entered the index yet, for many reasons: recent discovery with a pending decision, duplication of a stronger page, low quality in the system&#39;s judgment, or a technical directive preventing indexing. Here lies the most common confusion among site owners: a page in crawling does not mean a page in search results, ever.</p>
+<p>Check any page&#39;s state via the URL inspection tool in Search Console and you will find it in one of three states: indexed, discovered not yet indexed, or excluded with a stated cause. A page excluded for quality or duplication needs a content review, not another indexing request; a recently discovered one needs a single indexing request and days of patience. If the whole site stays unindexed despite healthy links, check first for an inherited noindex tag from a template or plugin setting — the most common silent killer of indexing, falling on beginners unnoticed.</p>
+<h2 id="stage-three-ranking-why-you-are-here-and-not-there">Stage Three: Ranking — Why You Are Here and Not There</h2>
+<p>Ranking is the decision of choosing the best indexed pages for every search — the stage everyone fears and every advice discusses, yet its basic components are understandable: the content itself and its match with the searcher&#39;s question; the search intent the article answers; the page experience of speed and stability; the site&#39;s reputation through links and external signals; and the topic&#39;s time consistency. There is no single magic factor but a mixture the system weighs according to the search type itself — ranking standards for a news result differ from those for a detailed technical guide.</p>
+<p>The most practical conclusion from understanding this stage: ranking builds on indexing, and indexing builds on crawling — any problem at the chain&#39;s base breaks what sits above. A site not indexed will never rank however polished its keywords; a site indexed then vanishing after days has usually a quality or duplication problem, not crawling. So every SEO fix starts from correct diagnosis: which stage is broken in your site? The answer defines the repair tool, not the reverse.</p>
+<div class="tbl-wrap"><table><thead><tr><th>Stage</th><th>What happens</th><th>Your checking tools</th></tr></thead><tbody><tr><td>Crawling</td><td>Page discovery via links and sitemap</td><td>Crawl report and URL inspection in Search Console</td></tr><tr><td>Indexing</td><td>Content understanding and index entry</td><td>Pages report and URL inspection</td></tr><tr><td>Ranking</td><td>Choosing the best pages per search</td><td>Performance report and position monitoring</td></tr></tbody></table></div>
+<h2 id="the-crawler-does-not-read-like-you">The Crawler Does Not Read Like You</h2>
+<p>The crawler sees your page from an angle different from the visitor&#39;s eye: it reads code, texts, and links, and tries rendering the page like a browser — but any element depending on heavy JavaScript may appear late or never. This is why static sites generating their full content into the page itself, like this blog, hold a clear crawling advantage: every article present with its text and tags at first read, while all-JavaScript sites need extra rendering that may delay content understanding by days.</p>
+<p>Practically this means simple design decisions with large effects: core content in HTML, not hidden behind interaction; texts as real text, not images carrying words; links as real links, not buttons working on JavaScript alone. Keep the content you want indexed present in the page&#39;s first snapshot, and defer aesthetic effects to after content — the same order serving the crawler and the mobile visitor at once.</p>
+<h2 id="crawl-budget-how-the-system-divides-its-time-on-your-site">Crawl Budget: How the System Divides Its Time on Your Site</h2>
+<p>Google gives every site a crawl budget: the number of pages it crawls in a period, determined by site size, health, speed, and update activity. A small clean site rarely faces budget problems, while a large site stuffed with weak pages spends its budget on valueless edges, delaying its good pages&#39; discovery. The practical rule: do not inflate your site with pages you do not want indexed — every extra page eats the important pages&#39; share.</p>
+<p>Improve your crawl budget with three decisions: exclude valueless pages from indexing with correct directives, fix slow pages hindering the crawler&#39;s complete round, and keep an accurate sitemap reflecting reality. Whoever restructures their site often with changing links should unify old links with redirects — every broken link wastes crawl budget and a visitor&#39;s bite together.</p>
+<h2 id="the-index-is-not-a-permanent-archive-pages-can-leave">The Index Is Not a Permanent Archive: Pages Can Leave</h2>
+<p>Many site owners believe indexing is a one-time final decision — the truth is the index reviews itself continuously: a page may enter the index then leave if it loses quality, disappears, or changes into a redirect, and a site may lose indexed pages after a major update to its overall quality. This is not system evil but results-quality protection — a reminder that indexing is a continuously earned state, not a once-won title.</p>
+<p>Watch your indexed pages count&#39;s monthly trend in the pages report: a continuous decline with no known technical cause deserves deep checking — pages deleted without redirects, content whose quality declined, or new technical problems appearing. And whoever finds their index stable or growing holds a healthy signal reflecting a living, accumulating site, not one silently eroding.</p>
+<h2 id="a-live-example-an-articles-journey-from-publishing-to-results">A Live Example: An Article&#39;s Journey From Publishing to Results</h2>
+<p>Imagine you published today a new article about setting up a contact form: at publishing, the page enters your sitemap automatically, and within hours the crawler picks it from the map and reads its content. The next day the system enters analysis: it understands the article addresses whoever wants a contact form setup, compares it to other articles on the topic, and evaluates indexing. After days the page starts appearing on precise far-tail queries, then the query circle widens as reader signals accumulate: did they stay on the page? Did they find what they searched?</p>
+<p>This journey explains a behavior confusing beginners: a new article appearing and vanishing in volatile positions during its first weeks — a natural phenomenon named early ranking fluctuation, as the system tests your page in different positions reading visitor reactions. Do not judge your article in its first week; give it weeks of stability before deciding to change its title or rewrite it — hasty editing during fluctuation loses the signals the system was collecting about you.</p>
+<h2 id="what-serves-all-three-stages-together">What Serves All Three Stages Together</h2>
+<p>Some site work serves all three stages at once, and it is the first to complete on any new site: a clean link structure serving crawler and visitor together; controlled page speed letting the crawler finish its round and lifting the visitor&#39;s experience; original clear-topic content the system understands and the reader loves; and honest page titles and descriptions expressing their content, never promising what they do not hold. These four are SEO&#39;s bloodstream — we covered them across the <a href="/en/posts/adsense-road-01-foundations.html">Road to AdSense series</a> from the approval angle; here you see them from the search angle.</p>
+<p>Stage-specific work has its own tools: crawling problems checked with the crawl report and sitemap; indexing problems with the pages report and URL inspection; ranking problems with the performance report and query analysis. Order your work on this sequence and never jump to ranking improvement before proving crawling and indexing are healthy — a common ordering error spending a site owner&#39;s effort treating symptoms of an undiagnosed disease.</p>
+<h2 id="common-myths-about-how-search-engines-work">Common Myths About How Search Engines Work</h2>
+<p>The first confusion is believing submitting your site to Google once is enough — submission starts the story and never ends it; every new content needs its discovery. The second is believing duplication receives an explicit penalty — the truth is the system picks the strongest version and ignores the rest, a silent loss, not a punishment. The third is believing SEO tools know your site better than Search Console — external tools estimate while the Console knows; it is your first reference in every dispute.</p>
+<p>One final myth deserves correcting: that submitting your site to &quot;fast Google submission&quot; tools or services speeds indexing — these services do nothing your sitemap and official indexing request do not do, and some bother your site with fake requests. Everything you need officially is available free in Search Console as I guided in <a href="/en/posts/search-console-first-steps.html">its first steps guide</a> — do not pay those selling what is free, and never hand your browser to tools of unknown origin.</p>
+<h2 id="ranking-signals-what-the-system-actually-weighs">Ranking Signals: What the System Actually Weighs</h2>
+<p>Google publishes no weights for its ranking factors, but long observation and official guidance clarify the practical priorities: content matching the searcher&#39;s intent first — the system tests your page with one question: did you answer what the searcher came asking? Then processing quality and depth compared to competitors; then page experience of speed, stability, and absence of annoying pop-ups; then site reputation through links, external signals, and accumulated time trust. These four form the core, around which fine details change marginal positions between close competitors.</p>
+<p>The practical takeaway of this ordering: the site answering the searcher&#39;s question best survives every system update, and whoever builds on marginal details sees positions move with every adjustment. So I always give one advice to whoever asks about ranking: make your article the best existing answer to your question in your language, then tune speed and link structure, and leave the race to value, not tricks — that is the path that accumulates and never evaporates.</p>
+<h2 id="your-static-site-a-clear-crawling-advantage">Your Static Site: A Clear Crawling Advantage</h2>
+<p>A static blog built like this one generates every page with its full text and tags into ready files, so the crawler reads it at first request with no rendering wait — practically visible in faster indexing of new articles and complete system understanding of content. Add exceptional loading speed and global distribution servers, and you get an environment where crawler and visitor deal with your site at a speed matching big invested platforms.</p>
+<p>This advantage does not cancel correct SEO work — a badly structured static site loses like any other — but it makes every SEO effort you make run on fertile ground: every published article ready for instant understanding, every internal link serving the crawler immediately, every speed improvement reflecting directly in experience. Whoever builds on this environment starts the race a step ahead many competitors on the same keywords do not hold.</p>
+<h2 id="how-this-base-connects-to-adsense-and-earnings">How This Base Connects to AdSense and Earnings</h2>
+<p>Whoever works on two goals — search ranking and AdSense approval — finds the base serving both together: a site cleanly indexed shows the reviewer as a real entity inside Google&#39;s system; original content the system understands raises the value of pages that will display ads; a fast stable experience satisfies visitor, crawler, and reviewer together. So do not build two parallel sites with two standards — build one healthy site from the root; one quality delivers both goals.</p>
+<p>Your daily site decisions also serve both paths: a new well-structured article indexes faster, ranks better, and offers higher value to the ad viewer; organized internal links distribute page strength and lengthen the visitor&#39;s session; a fresh sitemap tells Google your news and tells you your archive&#39;s maturity. This SEO-earnings integration is not coincidence but the same logic my blog and client blogs were built on — the two series in this blog meet exactly at these foundations.</p>
+<p><img src="/assets/images/articles/seo-foundations-01-how-search-works/infographic-en.png" alt="Search engine stages infographic: crawling, indexing, ranking" loading="lazy"></p>
+<h2 id="how-to-use-this-base-on-your-site-today">How to Use This Base on Your Site Today</h2>
+<p>Open Search Console now and answer three questions: how many of my pages are indexed out of my total? Are there important excluded pages and why? Is my sitemap fresh and accepted? The answers are your current work map: a crawling problem — review internal links and sitemap; an indexing problem — review excluded pages&#39; quality and template directives; a healthy index with no visibility — your problem is ranking and needs deeper content work the coming series parts explain.</p>
+<p>Then fix the diagnosis rule into your permanent work: every visible problem belongs to one stage, every stage has its tools and limits, and no one treats ranking with crawling tools or crawling with title changes. This organized simplicity separates professional SEO from scattered work — the professional does not work more, but works on the right spot every time, and the base built in this part makes every coming series step land in its correct place without wasted effort.</p>
+<h2 id="questions-from-first-time-learners">Questions From First-Time Learners</h2>
+<h3 id="how-long-does-each-stage-take">How long does each stage take?</h3>
+<p>Crawling after sitemap submission takes hours to days for a small healthy site; indexing after crawling takes days to two weeks by content quality and site size; serious ranking takes weeks to months by the target query&#39;s competition. No official time guarantees exist, and the rule is well-organized sites pass faster at every stage — do not ask about accelerating stages but about removing what blocks them; that is the most mature question in all of SEO.</p>
+<h3 id="does-google-crawl-my-site-daily">Does Google crawl my site daily?</h3>
+<p>Crawl frequency is set by the crawl budget the system grants your site, influenced by site size, publishing activity, hosting health, and page speed. A small active site may be crawled daily or every few days; a large stable one spreads its crawling across pages by importance and freshness. Whoever wants more crawling does not request it from Google but earns it: regular new content, fast-responding pages, an updated sitemap.</p>
+<h3 id="are-there-pages-i-do-not-want-indexed">Are there pages I do not want indexed?</h3>
+<p>Yes, and many: health requires indexing only valuable pages — your articles, core pages, and important category pages — while internal search results, empty tags, print versions, and thank-you pages add nothing to search and deserve exclusion. Correct exclusion focuses crawl effort on what matters, improving indexing and ranking — a discipline discipline we expand in a later series part.</p>
+<h3 id="do-major-google-updates-affect-these-stages">Do major Google updates affect these stages?</h3>
+<p>Major updates mainly touch the ranking stage, not crawling and indexing — your page will not stop indexing because Google updated its ranking system, but its result positions may move. Whoever builds on a healthy base is not rattled by updates; whoever builds on tricks sees positions move with every wave — the difference is the same understanding built in this part: the three stages, their limits, what serves and what blocks them — an understanding that does not age with system updates because it rests on principle, not tricks.</p>
+<h3 id="does-an-old-domain-age-help-ranking">Does an old domain age help ranking?</h3>
+<p>Age alone is not a ranking factor — a ten-year-old neglected domain does not beat a one-year-old one with excellent content. What accumulates with age is what helps: a clean record, accumulated links, long crawler trust, a stable index. This means age is an asset for whoever builds on it, not a magic purchased from the used-domains market — buying an old domain full of previous violations may inherit you a file worse than a clean new one.</p>
+<h2 id="part-one-summary">Part One Summary</h2>
+<p>The search engine works in three sequential stages: crawling discovers your pages via links and sitemap; indexing understands your content and enters it into the index; and ranking chooses the best pages for every search. Whoever memorizes these three reads any SEO discussion knowing exactly which stage it touches, and stops applying ranking advice to crawling problems or indexing advice to ranking problems.</p>
+<p>Understanding this sequence grants you diagnosis: every SEO problem belongs to a specific stage with its own tools and limits, and treating one stage while the problem sits in another is pure wasted effort. Review your site now with this part&#39;s three questions, identify your broken stage precisely, and start fixing it with its correct tools immediately, in the order the chain dictates: crawling first, then indexing, then ranking.</p>
+<p>The series&#39; next part dedicates itself to search intent — the key deciding which page you write and which question you answer, and the foundation every coming topic stands on. Follow it standing firm on this base: whoever understands how the system works deals with it confidently, knowing the game&#39;s rules, and whoever knows the rules stops fearing them.</p></div>
+      <aside class="art-toc" id="tocBox" aria-label="Article TOC">
+        <h2>In this article</h2>
+        <nav id="tocNav"><a href="#stage-one-crawling-discovering-your-pages" class="toc-l2">Stage One: Crawling — Discovering Your Pages</a><a href="#stage-two-indexing-understanding-and-storing-your-pages" class="toc-l2">Stage Two: Indexing — Understanding and Storing Your Pages</a><a href="#stage-three-ranking-why-you-are-here-and-not-there" class="toc-l2">Stage Three: Ranking — Why You Are Here and Not There</a><a href="#the-crawler-does-not-read-like-you" class="toc-l2">The Crawler Does Not Read Like You</a><a href="#crawl-budget-how-the-system-divides-its-time-on-your-site" class="toc-l2">Crawl Budget: How the System Divides Its Time on Your Site</a><a href="#the-index-is-not-a-permanent-archive-pages-can-leave" class="toc-l2">The Index Is Not a Permanent Archive: Pages Can Leave</a><a href="#a-live-example-an-articles-journey-from-publishing-to-results" class="toc-l2">A Live Example: An Article&#39;s Journey From Publishing to Results</a><a href="#what-serves-all-three-stages-together" class="toc-l2">What Serves All Three Stages Together</a><a href="#common-myths-about-how-search-engines-work" class="toc-l2">Common Myths About How Search Engines Work</a><a href="#ranking-signals-what-the-system-actually-weighs" class="toc-l2">Ranking Signals: What the System Actually Weighs</a><a href="#your-static-site-a-clear-crawling-advantage" class="toc-l2">Your Static Site: A Clear Crawling Advantage</a><a href="#how-this-base-connects-to-adsense-and-earnings" class="toc-l2">How This Base Connects to AdSense and Earnings</a><a href="#how-to-use-this-base-on-your-site-today" class="toc-l2">How to Use This Base on Your Site Today</a><a href="#questions-from-first-time-learners" class="toc-l2">Questions From First-Time Learners</a><a href="#how-long-does-each-stage-take" class="toc-l3">How long does each stage take?</a><a href="#does-google-crawl-my-site-daily" class="toc-l3">Does Google crawl my site daily?</a><a href="#are-there-pages-i-do-not-want-indexed" class="toc-l3">Are there pages I do not want indexed?</a><a href="#do-major-google-updates-affect-these-stages" class="toc-l3">Do major Google updates affect these stages?</a><a href="#does-an-old-domain-age-help-ranking" class="toc-l3">Does an old domain age help ranking?</a><a href="#part-one-summary" class="toc-l2">Part One Summary</a></nav>
+      </aside>
+    </div>
+
+    <div class="ad-slot" data-ad-slot="inArticle"></div>
+
+    <footer class="art-foot" id="artFoot">
+      <div class="art-extras" id="artExtras"><section class="series-box" aria-label="Series"><header class="series-head"><span class="series-chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>Series</span><b>SEO Foundations</b><span class="series-pos">Part 1 of 20</span></header><ol class="series-parts"><li class="here" aria-current="step"><span>Part 1 — SEO Foundations (1): How Search Engines Work — Crawling, Indexing and Ranking in Plain Language<em class="here-tag">You are here</em></span></li><li><a href="/en/posts/seo-foundations-02-intent.html">Part 2 — SEO Foundations (2): Search Intent — The Key Deciding Which Page You Write and How</a></li><li><a href="/en/posts/seo-foundations-03-keywords.html">Part 3 — SEO Foundations (3): Keyword Research — A Complete Method for New Sites</a></li></ol><p class="series-soon"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-info"/></svg>The remaining parts are in preparation — follow the blog</p><div class="series-nav"><span></span><a class="btn btn-primary btn-sm" href="/en/posts/seo-foundations-02-intent.html">Next part<svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+<section class="cta-strip" aria-label="Get it done for you"><div class="cta-strip-in"><div class="cta-strip-txt"><b>Get it done for you</b><p>I offer paid implementation of what this blog explains: AdSense readiness, SEO optimization, and fast website builds — with a written scope and a clear price before we start.</p><small>You deal with me directly — no middlemen and no commitment until we agree on details</small></div><a class="btn btn-primary" href="/en/contact.html?service=seo">Request this service<svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+<section class="offer-zone" aria-label="Current special offers"><h2 class="offer-title">Current special offers</h2><div class="offer-cards"><article class="offer-card"><span class="offer-badge">Most requested</span><b>Get your site AdSense-ready</b><p>A full review of content, legal pages, navigation and speed, plus a clear content plan — so you submit your AdSense request from the strongest position.</p><a class="offer-link" href="/en/contact.html?service=adsense-prep">Request this service<svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a></article><article class="offer-card"><span class="offer-badge">Limited monthly slots</span><b>A fast, SEO-ready website from scratch</b><p>I build a clean, fast site with solid structure, ready for indexing and ads — committed delivery, fully set up on your own domain.</p><a class="offer-link" href="/en/contact.html?service=web-dev">Request this service<svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a></article></div><p class="offer-note">Direct offers from me — valid while the available slots last</p></section></div>
+      <div id="artTags"><div class="tag-row"><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>SEO</span><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>search engines</span><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>crawling</span><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>indexing</span><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>search ranking</span></div></div>
+      <div class="share-row" id="shareRow"><span class="lbl">Share:</span><button class="btn btn-ghost btn-sm" data-share="copy"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-copy"/></svg>Copy link</button><a class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer" href="https://wa.me/?text=SEO%20Foundations%20(1)%3A%20How%20Search%20Engines%20Work%20%E2%80%94%20Crawling%2C%20Indexing%20and%20Ranking%20in%20Plain%20Language%20%E2%80%94%20https%3A%2F%2Fblog.abdallahabas.com%2Fen%2Fposts%2Fseo-foundations-01-how-search-works.html"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>WhatsApp</a><a class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer" href="https://t.me/share/url?url=https%3A%2F%2Fblog.abdallahabas.com%2Fen%2Fposts%2Fseo-foundations-01-how-search-works.html&text=SEO%20Foundations%20(1)%3A%20How%20Search%20Engines%20Work%20%E2%80%94%20Crawling%2C%20Indexing%20and%20Ranking%20in%20Plain%20Language"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-telegram"/></svg>Telegram</a><a class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=SEO%20Foundations%20(1)%3A%20How%20Search%20Engines%20Work%20%E2%80%94%20Crawling%2C%20Indexing%20and%20Ranking%20in%20Plain%20Language&url=https%3A%2F%2Fblog.abdallahabas.com%2Fen%2Fposts%2Fseo-foundations-01-how-search-works.html">X</a></div>
+      <p class="license-note"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Content by ABDALLAH ABAS — quoting is allowed with attribution and a link to the article page.</span></p>
+      <div class="related">
+        <h2>Related articles</h2>
+        <div class="cards" id="relatedBox"><article class="card"><div class="card-cover"><img src="/assets/images/articles/seo-foundations-03-keywords/cover.png" alt="" loading="lazy" width="600" height="400"></div><div class="card-body"><span class="chip chip-acc card-cat">SEO &amp; Indexing</span><h3><a class="card-link" href="/en/posts/seo-foundations-03-keywords.html">SEO Foundations (3): Keyword Research — A Complete Method for New Sites</a></h3><p>Part three of the SEO foundations series: a full practical keyword research method using free tools only — from idea generation to filtering to building a monthly article list — with a ready checklist.</p><div class="card-meta"><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><time datetime="2026-10-27">27 October 2026</time></span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>16 min read</span></div></div></article><article class="card"><div class="card-cover"><img src="/assets/images/articles/seo-foundations-02-intent/cover.png" alt="" loading="lazy" width="600" height="400"></div><div class="card-body"><span class="chip chip-acc card-cat">SEO &amp; Indexing</span><h3><a class="card-link" href="/en/posts/seo-foundations-02-intent.html">SEO Foundations (2): Search Intent — The Key Deciding Which Page You Write and How</a></h3><p>Part two of the SEO foundations series: what search intent is and its four types, how to read intent from Google&#39;s results themselves, and how to align your article&#39;s structure with what the searcher actually wants.</p><div class="card-meta"><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><time datetime="2026-10-26">26 October 2026</time></span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>16 min read</span></div></div></article><article class="card"><div class="card-cover"><img src="/assets/images/articles/search-console-first-steps/cover.png" alt="" loading="lazy" width="600" height="400"></div><div class="card-body"><span class="chip chip-acc card-cat">SEO &amp; Indexing</span><h3><a class="card-link" href="/en/posts/search-console-first-steps.html">Search Console for Beginners: Your First 8 Steps After Adding a Site</a></h3><p>A practical guide to first Search Console steps: verifying ownership, submitting your sitemap, checking indexing, reading the important reports, and tracking page performance — tested steps on a real site.</p><div class="card-meta"><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><time datetime="2026-10-09">9 October 2026</time></span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>16 min read</span></div></div></article></div>
+      </div>
+      <div class="ad-slot" data-ad-slot="belowPost"></div>
+  </article>
+
+  <section class="comments-sec" id="commentsSec" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Comments</h2>
+        <span class="chip" id="cCount"></span>
+      </div>
+      <div id="commentsBox">
+        <div id="cAuthSlot"></div>
+        <div id="cListSlot"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="/en/index.html">
+        <img class="brand-mark" src="/assets/images/logo.svg" alt="" width="37" height="37" aria-hidden="true">
+        <span class="brand-txt"><b>ABDALLAH ABAS</b><i>The Blog</i></span>
+      </a>
+      <p>An Arabic blog about online earning, SEO and web building — tested, clear content, no fake promises.</p>
+      <div class="foot-social" id="footSocial"></div>
+    </div>
+    <nav class="foot-col" aria-label="Blog links">
+      <h3>Blog</h3>
+      <a href="/en/index.html">Home</a>
+      <a href="/en/archive.html">All articles</a>
+      <a href="/en/about.html">About</a>
+      <a href="/en/contact.html">Hire me</a>
+    </nav>
+    <nav class="foot-col" aria-label="Services">
+      <h3>Services</h3>
+      <div id="footServices"></div>
+    </nav>
+    <nav class="foot-col" aria-label="Legal and other links">
+      <h3>Legal & tools</h3>
+      <a href="/en/privacy.html">Privacy Policy</a>
+      <a href="/en/terms.html">Terms of Use</a>
+      <a href="/en/disclosure.html">Affiliate Disclosure</a>
+      <a href="/en/disclaimer.html">Disclaimer</a>
+      <a href="/feed-en.xml">RSS feed</a>
+      <a href="https://tools.abdallahabas.com" target="_blank" rel="noopener noreferrer">Tools platform</a>
+    </nav>
+  </div>
+  <div class="wrap foot-bottom">
+    <p>© <span id="footYear">2026</span> ABDALLAH ABAS — All rights reserved.</p>
+    <p><a href="https://abdallahabas.com" target="_blank" rel="noopener noreferrer">Main website</a><span class="sep">·</span><a href="https://blog.abdallahabas.com/sitemap.xml">Sitemap</a></p>
+  </div>
+</footer>
+
+<div class="search-layer" id="searchLayer" hidden role="dialog" aria-modal="true" aria-label="Blog search">
+  <div class="search-panel">
+    <div class="search-bar">
+      <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+      <input id="searchInput" type="search" placeholder="Search articles…" autocomplete="off">
+      <button type="button" class="tool-btn" id="searchClose" aria-label="Close search"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="search-hints" id="searchHints"><span>Try:</span>
+      <button type="button" data-q="adsense">AdSense</button>
+      <button type="button" data-q="seo">SEO</button>
+      <button type="button" data-q="speed">Speed</button>
+      <button type="button" data-q="content">Content</button>
+    </div>
+    <div class="search-results" id="searchResults" role="listbox" aria-label="Search results"></div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+<dialog class="aa-dlg" id="aaDlg"><div class="dlg-card" id="aaDlgCard"></div></dialog>
+
+<script src="/js/config.js"></script>
+<script src="/js/ads.js"></script>
+<script src="/js/i18n.js"></script>
+<script src="/js/icons.js"></script>
+<script src="/js/markdown.js"></script>
+<script src="/js/manifest.js"></script>
+<script src="/js/articles.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/comments.js"></script>
+<script src="/js/post-enhance.js"></script>
+</body>
+</html>
