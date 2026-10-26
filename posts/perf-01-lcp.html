@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>تحسين LCP خطوة بخطوة: أسرع طريق لرفع سرعة صفحاتك في القياسات الحقيقية — ABDALLAH ABAS</title>
+<meta name="description" content="الجزء الأول من سلسلة الأداء: دليل عملي لتحسين مؤشر LCP من تشخيص العنصر المسؤول إلى إصلاحات الصور والخطوط والخادم — بخطوات مرتبة بالأثر وأدوات قياس مجانية.">
+<link rel="canonical" href="https://blog.abdallahabas.com/posts/perf-01-lcp.html">
+<link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
+<meta property="og:image" content="https://blog.abdallahabas.com/assets/images/articles/perf-01-lcp/cover.png">
+<meta property="og:image:alt" content="تحسين LCP خطوة بخطوة: أسرع طريق لرفع سرعة صفحاتك في القياسات الحقيقية — ABDALLAH ABAS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.abdallahabas.com/assets/images/articles/perf-01-lcp/cover.png">
+<meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="تحسين LCP خطوة بخطوة: أسرع طريق لرفع سرعة صفحاتك في القياسات الحقيقية — ABDALLAH ABAS">
+<meta property="og:description" content="الجزء الأول من سلسلة الأداء: دليل عملي لتحسين مؤشر LCP من تشخيص العنصر المسؤول إلى إصلاحات الصور والخطوط والخادم — بخطوات مرتبة بالأثر وأدوات قياس مجانية.">
+<meta property="og:url" content="https://blog.abdallahabas.com/posts/perf-01-lcp.html">
+<meta property="og:site_name" content="ABDALLAH ABAS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/theme.css">
+<script src="/js/theme.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0XEPCGX0EL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0XEPCGX0EL');
+</script>
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="ar" href="https://blog.abdallahabas.com/posts/perf-01-lcp.html">
+<link rel="alternate" hreflang="en" href="https://blog.abdallahabas.com/en/posts/perf-01-lcp.html">
+<link rel="alternate" hreflang="x-default" href="https://blog.abdallahabas.com/posts/perf-01-lcp.html">
+<meta property="og:locale" content="ar_EG">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="article:published_time" content="2026-10-27T12:00:00+02:00">
+<meta property="article:modified_time" content="2026-10-27T12:00:00+02:00">
+<meta property="article:author" content="https://abdallahabas.com">
+<meta property="article:section" content="تطوير الويب">
+<meta property="article:tag" content="LCP">
+<meta property="article:tag" content="Core Web Vitals">
+<meta property="article:tag" content="تحسين الأداء">
+<meta property="article:tag" content="سرعة الموقع">
+<meta property="article:tag" content="WebP">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"تحسين LCP خطوة بخطوة: أسرع طريق لرفع سرعة صفحاتك في القياسات الحقيقية","description":"الجزء الأول من سلسلة الأداء: دليل عملي لتحسين مؤشر LCP من تشخيص العنصر المسؤول إلى إصلاحات الصور والخطوط والخادم — بخطوات مرتبة بالأثر وأدوات قياس مجانية.","datePublished":"2026-10-27","dateModified":"2026-10-27","inLanguage":"ar","wordCount":2550,"keywords":"LCP, Core Web Vitals, تحسين الأداء, سرعة الموقع, WebP","articleSection":"تطوير الويب","author":{"@type":"Person","name":"ABDALLAH ABAS","url":"https://abdallahabas.com"},"publisher":{"@type":"Organization","name":"ABDALLAH ABAS","logo":{"@type":"ImageObject","url":"https://abdallahabas.com/assets/images/logo.svg"}},"mainEntityOfPage":"https://blog.abdallahabas.com/posts/perf-01-lcp.html","url":"https://blog.abdallahabas.com/posts/perf-01-lcp.html","image":["https://blog.abdallahabas.com/assets/images/articles/perf-01-lcp/cover.png"],"isPartOf":{"@type":"CreativeWorkSeries","name":"الأداء وسرعة الموقع","position":1}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://blog.abdallahabas.com/"},{"@type":"ListItem","position":2,"name":"تطوير الويب","item":"https://blog.abdallahabas.com/category.html?c=web-dev"},{"@type":"ListItem","position":3,"name":"تحسين LCP خطوة بخطوة: أسرع طريق لرفع سرعة صفحاتك في القياسات الحقيقية","item":"https://blog.abdallahabas.com/posts/perf-01-lcp.html"}]}</script>
+</head>
+<body data-page="post" data-post="perf-01-lcp" data-lang="ar">
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+<div class="read-progress" id="readProgress" aria-hidden="true"></div>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="/index.html" aria-label="ABDALLAH ABAS — الصفحة الرئيسية للمدونة">
+      <img class="brand-mark" src="/assets/images/logo.svg" alt="" width="37" height="37" aria-hidden="true">
+      <span class="brand-txt"><b>ABDALLAH ABAS</b><i>المدونة</i></span>
+    </a>
+    <nav class="nav" id="siteNav" aria-label="التنقل الرئيسي">
+      <a href="/index.html" data-nav="home">الرئيسية</a>
+      <a href="/archive.html" data-nav="archive">كل المقالات</a>
+      <div class="nav-drop">
+        <button type="button" class="nav-drop-btn" id="catsBtn" aria-expanded="false" aria-haspopup="true">التصنيفات <svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <div class="nav-menu" id="catsMenu" role="menu">
+          <a role="menuitem" href="/category.html?c=adsense"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg>ادسنس وأرباح جوجل<span class="cnt" data-cat="adsense"></span></a>
+          <a role="menuitem" href="/category.html?c=seo"><svg class="ic" aria-hidden="true"><use href="#i-chart"/></svg>السيو والفهرسة<span class="cnt" data-cat="seo"></span></a>
+          <a role="menuitem" href="/category.html?c=web-dev"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg>تطوير الويب<span class="cnt" data-cat="web-dev"></span></a>
+          <a role="menuitem" href="/category.html?c=marketing"><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg>التسويق الرقمي<span class="cnt" data-cat="marketing"></span></a>
+          <a role="menuitem" href="/category.html?c=tools"><svg class="ic" aria-hidden="true"><use href="#i-wrench"/></svg>أدوات مجانية<span class="cnt" data-cat="tools"></span></a>
+        </div>
+      </div>
+      <a href="/about.html" data-nav="about">عن المدونة</a>
+      <a href="/contact.html" class="btn btn-primary btn-sm" data-nav="contact">اطلب خدمة</a>
+    </nav>
+    <div class="head-tools">
+      <button type="button" class="tool-btn" id="searchBtn" aria-label="بحث في المدونة" aria-haspopup="dialog"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></button>
+      <button type="button" class="tool-btn" id="themeBtn" aria-label="تبديل المظهر (ليلي/نهاري)" aria-pressed="false"><svg class="ic ic-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="ic ic-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+      <a class="lang-tag" href="/en/index.html" hreflang="en" lang="en" aria-label="Switch to English">EN</a>
+      <button type="button" class="tool-btn burger" id="navBtn" aria-expanded="false" aria-controls="siteNav" aria-label="فتح القائمة"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <article class="art wrap">
+
+    <header class="art-head" id="artHead"><nav class="crumbs" aria-label="مسار التنقل"><a href="/">الرئيسية</a><svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg><a href="/category.html?c=web-dev">تطوير الويب</a><svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg><span aria-current="page">تحسين LCP خطوة بخطوة: أسرع طريق لرفع سرعة صفحاتك في القياسات الحقيقية</span></nav><h1 id="artTitle">تحسين LCP خطوة بخطوة: أسرع طريق لرفع سرعة صفحاتك في القياسات الحقيقية</h1><div class="art-meta"><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><time datetime="2026-10-27">٢٧ أكتوبر ٢٠٢٦</time></span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>14 دقيقة قراءة</span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>2550 كلمة</span></div></header>
+
+    <div class="art-cover cover-img-mode" id="artCover"><img class="art-cover-img" src="/assets/images/articles/perf-01-lcp/cover.png" alt="تحسين LCP خطوة بخطوة: أسرع طريق لرفع سرعة صفحاتك في القياسات الحقيقية" width="1200" height="675" fetchpriority="high"></div>
+
+    <div class="art-layout">
+      <div class="art-body prose" id="artContent"><p>افتتح سلسلة الأداء بالمؤشر الذي يجذب الانتباه أولًا ويشكو منه الجميع: مؤشر LCP الذي يقيس متى يرى زائرك المحتوى الرئيسي لصفحتك فعلًا. هذا المؤشر هو الانطباع الأول الرقمي لموقعك، فهو يجيب سؤالًا يسأله كل زائر في أول ثوانٍ: هل هذا الموقع جاهز؟ في هذا الدليل نمشي خطوة بخطوة من تشخيص العنصر المسؤول في صفحتك تحديدًا، إلى إصلاحات مرتبة حسب أثرها الحقيقي، إلى القياس الذي يثبت أن عملك نفع. الدليل مكتوب لمن يدير مواقع ثابتة ومن على المنصات معًا، وكل خطوة فيه مجانية التنفيذ.</p>
+<p><strong>أهم ما ستفعله في هذا الدليل:</strong></p>
+<ul><li>تشخيص عنصر LCP في صفحاتك ومعرفة سبب تأخره بالضبط</li><li>تطبيق إصلاحات مرتبة بالأثر من الصور إلى الخطوط إلى الشبكة</li><li>قياس نتيجتك على بيانات زوار حقيقيين لا على اختبار نظيف</li><li>بناء روتين يحمي هذا المؤشر مع كل نشر جديد</li></ul>
+<h2 id="ما-الذي-يقيسه-lcp-بالضبط-تعريف-يفهمه-الجميع">ما الذي يقيسه LCP بالضبط: تعريف يفهمه الجميع</h2>
+<p>يقيس LCP الزمن من لحظة بدء تحميل الصفحة حتى ظهور أكبر عنصر مرئي في شاشة الزائر الأولى، وهو غالبًا صورة غلاف المقال أو عنوانه الرئيسي أو كتلة نص كبرى. النظام يحسب المؤشر من تجارب زوار حقيقيين ويأخذ الرقم الذي حققه خمسة وسبعون بالمئة من زياراتك، فالهدف الرسمي أقل من ثنتين ونصف ثانية، وما بين ثنتين ونصف وأربع ثوانٍ يحتاج تحسينًا، وما فوق أربع ثوانٍ ضعيف يفقدك زوارًا قبل أن يقرؤوا حرفًا.</p>
+<p>من يفهم هذا التعريف جيدًا يدرك أن LCP ليس متوسط سرعة موقعك بل سرعة أبطأ ربع زوارك، أي أن تحسينه يعني مساعدة أبطأ حالاتك: الزائر على هاتف متوسط بشبكة ضعيفة في وقت ازدحام. هذه الزاوية تحدد كل قراراتك اللاحقة، فالتحسين الحقيقي يستهدف الجهاز والشبكة الواقعية التي يعيشها زوارك لا مختبرك السريع المثالي، وقد فسرت الأساس الكامل للمؤشرات الثلاثة في <a href="/posts/core-web-vitals-speed.html">دليل Core Web Vitals الشامل</a> الذي يليق بقراءته قبل هذا الدليل أو بعده مباشرة، ولمن يجهز موقعًا للقبول فهذه الإصلاحات جزء من <a href="/posts/adsense-approval-checklist.html">قائمة التحقق قبل التقديم</a>.</p>
+<h2 id="الخطوة-الأولى-شخص-عنصر-lcp-في-صفحتك">الخطوة الأولى: شخّص عنصر LCP في صفحتك</h2>
+<p>لا تبدأ الإصلاح قبل التشخيص، فكل صفحة لها عنصر LCP مختلف وأسباب تأخره تختلف: افتح <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a> وأدخل رابط صفحة مقال ممثلة، وابحث في التشخيص عن سطر &quot;أكبر عنصر رسم محتوى&quot; الذي يسمي العنصر المسؤول ويحدد نسبة مساهمته في التأخير. ثم افتح أدوات المطوّر في متصفح كروم وقسمن الأداء وشغّل قياسًا ببيئة محاكاة بطيئة، فسترى شريط تحميل العنصر نفسه بتفاصيل مراحله: متى طُلب، ومتى وصل، ومتى ظهر.</p>
+<p>هذا التشخيص يحسم قرارك في ثلاث سيناريوهات: إن كان العنصر صورة غلاف فمسارك إصلاحات الصور، وإن كان نصًا فمسارك الخطوط والعرض، وإن كان كليهما متأخرًا بسبب طلبات سابقة مزاحمة فمسارك ترتيب التحميل. ساعة واحدة من التشخيص الموثق على ثلاث صفحات ممثلة توفر عليك أيام تجريب عشوائي، ودوّن أرقامك قبل الإصلاح في ورقة قياس كي تقارن بعدها بصدق لا بانطباع.</p>
+<h2 id="إصلاحات-الصور-أكبر-مكسب-في-معظم-المواقع">إصلاحات الصور: أكبر مكسب في معظم المواقع</h2>
+<p>صورة الغلاف هي عنصر LCP في أغلب صفحات المقالات، وهي غالبًا أكبر ملف في الصفحة كلها، فابدأ من ثلاثة إصلاحات مرتبة: صيغة مضغوطة حديثة كـWebP تخفض الحجم نحو النصف مع بقاء الجودة، وأبعاد عرض مطابقة لأقصى عرض يظهر به العنصر في قالبك لا أبعاد أضعافها، وأولوية تحميل عالية تخبر المتصفح أن هذه الصورة أولى الطلبات لا آخرها. في مواقعنا الثابتة هذه الخصائص سطر في وسم الصورة، وقياسها بعد تطبيقها يظهر فورًا في الاختبار.</p>
+<p>أضف إلى ذلك قرارين يخطئ فيهما كثيرون: لا تحمّل صورة الغلاف كسولًا فالتحميل الكسول للعنصر الأول يؤخر ظهوره بنفسه، ولا تضع صورتك داخل عنصر يظهر متأخرًا بخاصيات حركة أو شرط جافاسكربت. أما صور المقال داخل المتن فالتحميل الكسول مناسب لها تمامًا لأنها أسفل الشاشة، فالتمييز بين صورة تُرى فورًا وصورة تُرى لاحقًا هو جوهر أداء الصور كله، وهو قرار دقيقة واحدة لكل صورة يعيد لنفسها في كل زيارة.</p>
+<h2 id="إصلاحات-الخطوط-منع-الفجوة-البيضاء">إصلاحات الخطوط: منع الفجوة البيضاء</h2>
+<p>الخط المخصص الجميل يكلفك لحظة انتظار: النص لا يظهر إلا بعد وصول ملف الخط، فتفتح صفحتك على فراغ ثم تقفز للنص، وهذا التأخير يرتفع مباشرة إلى LCP. العلاج على ثلاث طبقات: قلل عدد الأوزان إلى ما تستخدمه فعلًا، وفعّل خاصية العرض البديل التي تظهر النص بخط النظام فورًا ثم تستبدله عند وصول الخط، وحمّل ملف الخط مبكرًا بخاصية الاستباق إن كان الخط نفسه هو عنصر LCP في صفحاتك.</p>
+<p>في القوالب العربية اختر عائلة خطية واحدة بقوزين — عادي وعريض — كما نستخدم هنا، فهذا يخفض الطلبات والحجم معًا ويعطي هوية ثابتة. وتأكد أن خطوطك تُخدم مع ترويسات تخزين مؤقت طويلة كي لا يعيد الزائر تحميلها في زيارته الثانية، فهذا يرفع سرعة التنقل الداخلي الذي يقرؤه النظام في مؤشرات تجربة المستخدم كله.</p>
+<h2 id="ترتيب-التحميل-ماذا-يزاحم-عنصر-lcp-عندك">ترتيب التحميل: ماذا يزاحم عنصر LCP عندك</h2>
+<p>بعد الصور والخطوط يأتي السؤال الأعمق: ماذا يحدث قبل طلب عنصر LCP في صفحتك؟ كل طلب مبكر يزاحمه — سكربتات القالب، وأنماط خارجية، وأدوات تتبع — يؤخر بدايته. افتح شريط الشبكة في أدوات المطوّر ورتب الطلبات بالزمن، وسترى خط الزحام الذي يسبق صورتك، فابدأ التقليل: أجّل كل سكربت غير ضروري للعرض الأول بخاصية التأجيل، وقلل الطلبات الخارجية إلى ما تقرأ نتائجه فعلًا، وادمج الأنماط الصغيرة المتعددة إن كنت تديرها يدويًا.</p>
+<p>في المواقع الثابتة هذه المرحلة عادة قصيرة لأن سكربتاتنا معدودة، لكن أضف عليها سكربتات الطرف الثالث التي أضفتها مع الوقت: أدوات التحليل والإعلانات لاحقًا وأزرار المشاركة. كل واحدة منها ثمنها أجزاء من الثانية تُقتطع من LCP، والمجموع حين يتراكم يقرصن أرقامك. قاعدة عملي الثابتة: أي إضافة جديدة تمر على سؤال واحد — ماذا تضيف للزائر وماذا تقتطع من سرعته؟ — ومن لا يجيب عن الأول بوضوح لا يستحق اقتطاع الثاني من زمن زوارك.</p>
+<div class="tbl-wrap"><table><thead><tr><th>الإصلاح</th><th>أثره على LCP</th><th>مجهوده</th></tr></thead><tbody><tr><td>ضغط الغلاف وتحويله WebP</td><td>كبير جدًا في صفحات الصور</td><td>دقائق لكل صورة</td></tr><tr><td>أولوية تحميل للعنصر الأول</td><td>كبير</td><td>سطر في الكود</td></tr><tr><td>الاستباق للخط المستخدم</td><td>كبير في صفحات النص</td><td>سطر في الرأس</td></tr><tr><td>تأجيل السكربتات غير الحرجة</td><td>متوسط إلى كبير</td><td>مراجعة قائمة السكربتات</td></tr><tr><td>تصغير أبعاد الصور للعرض الفعلي</td><td>متوسط</td><td>ضبط عند الرفع</td></tr></tbody></table></div>
+<h2 id="الخادم-وشبكة-التوزيع-الطابق-الذي-يسبق-كل-شيء">الخادم وشبكة التوزيع: الطابق الذي يسبق كل شيء</h2>
+<p>قبل كل ما سبق يوجد طابق أول لا تراه الصفحة: زمن استجابة الخادم الأول، فالصفحة لا تبدأ التحميل إلا بعد أن يرد الخادم على الطلب. مواقعنا الثابتة على شبكة توزيع عالمية تستجيب من أقرب نقطة للزائر فتقفل هذا الطابق تلقائيًا بأفضل صورة، أما المواقع على استضافات مشتركة متعثرة فيبدأ كل شيء متأخرًا مهما حسنت الصور والخطوط. إن كانت استجابة خادمك في القياسات أعلى من بضعة أعشار الثانية فهذا أول ما تصلحه، لأن كل ما بعده يبنى عليه.</p>
+<p>لمن على استضافة تقليدية، الحل التدريجي الممكن: شبكة توزيع مجانية أمام موقعك تعبئ ملفاتك الثابتة وتقدمها من نقاط قريبة، أو الانتقال لاستضافة ثابتة إن كان موقعك لا يحتاج خادمًا حيًا أصلًا — وهو حال أغلب المدونات النصية، وقد شرحت فلسفة البنية الثابتة في <a href="/posts/adsense-road-01-foundations.html">جزء أساسات الطريق إلى ادسنس</a>. هذا القرار المعماري يفوق أثره كل تحسينات الصور مجتمعة في المواقع ذات الزوار الموزعين جغرافيًا، فخوادم القرب هي الفارق بين زائر خليجي وزائر مغربي يشعران بنفس السرعة.</p>
+<p><img src="/assets/images/articles/perf-01-lcp/infographic-ar.png" alt="إنفوجراف تحسين LCP: التشخيص والإصلاحات مرتبة بالأثر" loading="lazy"></p>
+<h2 id="حالة-خاصة-lcp-في-صفحات-الجوال">حالة خاصة: LCP في صفحات الجوال</h2>
+<p>صفحة الجوال ليست نسخة مصغرة من الحاسوب بل بيئة مختلفة كليًا: شبكة متغيرة، وجهاز يعالج أبطأ، وشاشة تعيد ترتيب العناصر فيغيور عنصر LCP نفسه أن يتغير. لذلك لا تعتمد نتيجة اختبار الحاسوب على صفحاتك، بل شغّل القياس بصيغة الجوال في PageSpeed دائمًا، وافحص صفحتك من هاتفك على بيانات حقيقية مرة كل أسبوعين، فهذا الفحص الحي يكشف ما لا تكشفه المحاكاة من بطء إحساسي.</p>
+<p>الإصلاحات نفسها تنطبق على الجوال مع أولوية معدلة: ضغط الصور يتصدر لأن الشبكة أبطأ، وتقليل السكربتات يليه لأن المعالجة أضعف، والخطوط ثالثة لأن عرض النص هو غالبًا عنصر LCP على الشاشات الصغيرة. من يصلح للجوال أولًا يجد سطح المكتب سريعًا تلقائيًا، والعكس غير صحيح، فاجعل بيئة الجوال هي بيئة التطوير الفعلية في كل ما تبقى من سلسلة الأداء هذه.</p>
+<h2 id="الأتمتة-البسيطة-كيف-تحمي-lcp-بلا-عبء-يومي">الأتمتة البسيطة: كيف تحمي LCP بلا عبء يومي</h2>
+<p>بعد أن تصلح موقعك تحتاج منع الانتكاس أكثر من تحسين إضافي، والحماية هنا إجراءات بسيطة مدمجة في روتينك: أداة ضغط تعالج كل صورة عند رفعها قبل النشر فلا تمر صورة خام إلى الموقع أبدًا، وقائمة فحص نشر تشمل سطر فحص سريع على PageSpeed قبل إعلان المقال، ومراجعة شهرية تقرأ تقرير تجربة المستخدم وتنبه لأي اتجاه سلبي مبكر.</p>
+<p>بهذه الثلاثة يتحول الأداء من مشروع متكرر إلى خاصية دائمة للموقع، فكل مقال جديد يولد على معايير القديمة، والانحدار الذي ينتظر مواقع كثيرة بعد أشهر من النشر لن يجد في موقعك ثغرة تدخله. هذا هو المعنى الحقيقي لإدارة أداء: نظام صيانة صغير يعمل خلف الكواليس ويحمي أصلًا رقميًا تراكم شهور من العمل.</p>
+<h2 id="القياس-بعد-الإصلاح-كيف-تتأكد-أنك-كسبت">القياس بعد الإصلاح: كيف تتأكد أنك كسبت</h2>
+<p>بعد كل دفعة إصلاحات قس في موضعين: الاختبار المعملية عبر PageSpeed لترى أثر كل تعديل مباشرة، وبيانات الحقل في تقرير تجربة المستخدم بSearch Console لترى أثره على زوارك الحقيقيين خلال الأسابيع. الاختبار يجيب: هل تحسنت تقنيًا؟ والحقل يجيب: هل شعر الزوار؟ كلا الجوابين لازم، فتحسن مخبري بلا انعكاس حقيقي يعني أنك حسنت حالة لا يعيشها زوارك، وتأخر الحقل طبيعي لأنه يتراكم على مدى أسبوعين إلى أربعة.</p>
+<p>وثّق في ورقة قياسك: تاريخ التعديل، وما عدلته، ورقم LCP قبله وبعده في الاختبار، فهذا السجل يحول موقعك من أشياء نُفذت إلى قرارات مفهومة الأثر، ويعلّمك أي الإصلاحات يستحق تكراره في مواقعك القادمة. بعد جولتين أو ثلاث ستجد أن نمط الموقع ظهر: موضع الألم الثابت فيه، والأدوات التي تحركه فعلًا، وعندها يصبح تحسين الأداء عادة منظمة لا حملة طوارئ متكررة.</p>
+<h2 id="سيناريوهات-واقعية-ثلاثة-مواقع-وثلاثة-مسارات">سيناريوهات واقعية: ثلاثة مواقع وثلاثة مسارات</h2>
+<p>لتثبيت المنهج تخيل ثلاث حالات تتكرر كثيرًا. الموقع الأول مدونة ثابتة صوره المضغوطة جزئيًا: عنصر LCP عنده صورة غلاف مكبّرة الأبعاد، ومساره قصير: تحويل الغلافات إلى WebP بأبعاد صحيحة وأولوية تحميل، وقفزة كبيرة في يوم واحد. الموقع الثاني على منصة محملة بإضافات تتبع: عنصره صورة أيضًا لكن سبقه طابور سكربتات، فمساره يبدأ بجرد الإضافات وتأجيل غير الضروري قبل لمس أي صورة، فالصورة ليست متهمة في هذه القضية.</p>
+<p>الموقع الثالث نصي بلا صور كبيرة: عنصر LCP عنده نص العنوان الرئيسي ينتظر خطًا مخصصًا، ومساره كلهم في طبقة الخطوط: استباق وعرض بديل وتقليل الأوزان، ثم مراجعة طابور الطلبات. الثلاثة بدأوا من نفس المؤشر وانتهوا لمسارات مختلفة كليًا، وهذا درس التشخيص الحقيقي: لا وصفة موحدة، بل قراءة موضعك أنت ثم سحب الخيط الصحيح من بدايته، وكل دليل في هذه السلسلة يعطيك الخيوط وترتيبها.</p>
+<h2 id="أدوات-المرافقة-في-رحلتك-قائمة-قصيرة-تكفي">أدوات المرافقة في رحلتك: قائمة قصيرة تكفي</h2>
+<p>لا تحتاج عدة أدوات ضخمة لهذا المسار، بل ثلاثة مواضع تكفي موقعًا كاملًا: PageSpeed Insights للقياس والتشخيص السريع، وأدوات مطوّر كروم للتعمق في شريط الشبكة والتسجيل، وتقرير تجربة المستخدم في Search Console لمتابعة الحقل الأسبوعي. أضف إليها خدمة WebPageTest المجانية حين تحتاج قياسًا من مواقع جغرافية وشبكات مختلفة، فهذه الأربعة تغطي كل ما يحتاجه موقع متوسط من تشخيص ومتابعة دون اشتراك واحد.</p>
+<p>القاعدة في استخدامها الانضباط لا الكثرة: قياس قبل وبعد كل دفعة، وتوثيق الأرقام في ورقة قياس واحدة ثابتة، وقراءة بيانات الحقل شهريًا بهدوء. من يشتت نفسه بين عشر أدوات يفقد الخيط، ومن يمسك الثلاث المقررة يبني روتينًا يظهر أثره في أرقام مستقرة على مدى أشهر، وهذا هو الهدف: أداء يُدار لا أرقام تُطارَد.</p>
+<h2 id="ما-بعد-lcp-خريطة-بقية-السلسلة">ما بعد LCP: خريطة بقية السلسلة</h2>
+<p>إصلاح LCP يفتح لك أبواب باقي المؤشرات، فبقية السلسلة تبني عليه: الجزء الثاني لـINP ومؤشر استجابة التفاعل الذي يعاني من السكربتات نفسها التي أجلتها هنا، والجزء الثالث لـCLS وثبات العناصر الذي تخدمه أبعادك المحجوزة نفسها. فمن أتم هذا الدليل ملك نصف طريق الأداء، والباقي تفاصيل منهجية نفسها مطبقة على مؤشرات أخرى.</p>
+<p>وثمة صلة مباشرة بالأرباح تذكرها دائمًا: كل ثانية تقتطعها من الظهور الأول تقتطع جزءًا من فرص ظهور إعلاناتك القادمة، والزائر الذي يرى المحتوى بسرعة يمشي أعمق في موقعك حيث تعيش وحداتك الإعلانية. الأداء ليس فصلًا تقنيًا منفصلًا عن جدوى موقعك بل هو البنية التي يقف عليها كل ما تبقى، ولذلك فتحنا به السلسلة.</p>
+<h2 id="أخطاء-شائعة-في-سباق-تحسين-lcp">أخطاء شائعة في سباق تحسين LCP</h2>
+<p>أشيعها الاستسلام المبكر بعد تحسين الصور، حين لا يصل المؤشر للهدف فيتحكم الإحباط، والحقيقة أن الترتيب الصحيح يحتاج عادة ثلاث دفعات: صور ثم خطوط وترتيب ثم خادم. وخطأ ثانٍ إصلاح الصفحة الرئيسية فقط ونسيان صفحات المقالات التي يصلها الزوار فعلًا من البحث، فالقياس الأهم على صفحات المحتوى لا على واجهة العرض. وثالثه إضافة تحسينات تفوق الحاجة كإزالة كل الصور أو تصغير النصوص، فيتحسن الرقم ويخرب التجربة، فالمؤشر خادم للتجربة لا سيد عليها.</p>
+<p>وأخطرها الاستسلام الكامل تحت مقولة أن جوجل لا تحتسب السرعة في الترتيب فعلًا، فهذا خلط بين كون السرعة عاملًا مساعدًا وبين كونها بلا أثر: فالزائر الذي يغادر قبل الظهور لم يقرأ ولم يشاهد إعلانًا ولم يشارك، وخسارته حقيقية في كل مقاييس موقعك مهما كان ترتيبك في النتائج. السرعة استثمار في بقاء كل زائر تجرّه، وهذا وحده يكفي سببًا وجيهًا للعمل على المؤشر بلا انتظار حكم جوجل في أي تحديث قادم.</p>
+<h2 id="كيف-تختار-صفحاتك-الثلاث-الممثلة-للقياس">كيف تختار صفحاتك الثلاث الممثلة للقياس</h2>
+<p>اختيار الصفحات الممثلة خطوة تحدد صدق كل قياساتك لاحقًا، فافتح تقرير أدائك واختر: الصفحة الأكثر زيارات، وأطول مقال عندك بصور كثيرة، وأحدث مقال نشرته. هذه الثلاثة تمثل الأنماط الثلاثة الحية في موقعك: الواجهة، والصفحة الثقيلة، والصفحة الجديدة التي ستتكرر آلاف المرات مستقبلًا. سجلها في ورقة قياسك بأسمائها وروابطها ولا تغيرها لاحقًا كي تبقى مقارناتك على نفس الأساس.</p>
+<p>ومع نمو الموقع أضف صفحة رابعة كل فصل تمثل النمط الجديد إن ظهر: صفحة تصنيف نشطة أو صفحة خدمة أو دليل طويل جديد. بهذا التطور الهادئ تبقى قياساتك خاطبة لواقع موقعك لا لذكرياته، وهذه من أدق تفاصيل إدارة الأداء التي يهملها الجميع ثم يفاجئون بأرقام لا تعبر عن شيء حقيقي في موقعهم.</p>
+<h2 id="أسئلة-يطرحها-من-يبدأ-التحسين">أسئلة يطرحها من يبدأ التحسين</h2>
+<h3 id="عنصر-lcp-عندي-نص-وصورة-معا-أيهما-أصلح">عنصر LCP عندي نص وصورة معًا، أيهما أصلح؟</h3>
+<p>افحص التشخيص فهو يسمي العنصر الفائز لحظة القياس، وغالبًا يكون النص الذي يظهر قبل الصورة، وعندها ابدأ بالخطوط والاستباق وترتيب التحميل. لكن إن كانت الصورة تفوق النص حجمًا بمرات فالأولوية لها لأنها العائق الأكبر، والقاعدة العملية: أصلح الأثقل أولًا ثم أعد القياس، فالمؤشر يتحسن بالترتيب لا بجمع كل الإصلاحات دفعة واحدة.</p>
+<h3 id="هل-يكفي-تحقيق-الهدف-في-الاختبار-المعملية">هل يكفي تحقيق الهدف في الاختبار المعملية؟</h3>
+<p>الاختبار شرط ضروري غير كافٍ، فالمؤشر الرسمي يقرأ من زوار حقيقيين بأجهزتهم وشبكاتهم المتفاوتة، وقد تحقق الهدف في مختبرك وتعثر في الحقل بسبب زوار شبكات ضعيفة أو أجهزة متوسطة. اجعل الاختبار بوابة التحقق السريع بعد كل تعديل، واجعل الحقل مرجع الحكم النهائي على أسابيع، فهذا التوازن يمنعك من الاكتفاء بأرقام مختبر لا تعيش واقع زوارك.</p>
+<h3 id="كم-صفحة-أقيس-قبل-أن-أحكم-على-موقعي">كم صفحة أقيس قبل أن أحكم على موقعي؟</h3>
+<p>قس ثلاث صفحات ممثلة كحد أدنى: الرئيسية، ومقال طويل بصور كثيرة، ومقال حديث قصير، فهذه الثلاثة تغطي أنماط صفحاتك الأساسية. الموقع لا يُحكم بأفضل صفحاته بل بصفحاته التي يستقبل عليها زواره من البحث، ولهذا صفحة المقال هي بطاقة هوية موقعك الأدائية، وقياسها أسبوعيًا يكفي لمراقبة صحة الأداء كله دون غرق في قياس كل صفحة على حدة.</p>
+<h3 id="هل-تؤثر-الإعلانات-لاحقا-على-lcp-الذي-حسنته">هل تؤثر الإعلانات لاحقًا على LCP الذي حسنته؟</h3>
+<p>نعم إن أُسيء وضعها، فيجب أن تظل مواضعها بعيدة عن العنصر الأول وألا تزاحم تحميله، مع حجز أبعادها المسبق لحماية استقرار الصفحة كذلك. الإعلانات الموضوعة بذكاء لا تلغي تحسيناتك بل تتعايش معها، والموقع السريع قبل الإعلانات يبقى الأقدر على تحمل ثقلها دون تجاوز حدود المؤشر، فأصلح أساسك أولًا ثم تفعيل الإعلانات في مواضع محسوبة كما شرحت في خطط التفعيل الآمن.</p>
+<h2 id="خلاصة-الدليل">خلاصة الدليل</h2>
+<p>تحسين LCP مسار من أربع مراحل متتابعة: شخّص عنصرك وأسبابه بالأدوات المجانية أولًا، ثم أصلح الصور قبل الخطوط قبل ترتيب التحميل، ثم راجع طابق الخادم إن كان متأخرًا عن الواجب، ثم قس بلا انقطاع على الاختبار والحقليين معًا حتى يستقر رقمك في موضع آمن. في كل مرحلة ستجد قائمة هذا الدليل ترشدك بالأثر لا بالضجيج، فالترتيب الصحيح هو نصف النجاح في تحسين الأداء، والنصف الآخر هو القياس الصادق الذي يثبت أن جهدك وصل لزوارك فعلًا لا لأرقام مختبر فقط.</p>
+<p>الإصلاحات مرتبة بالأثر ومجانية التنفيذ، وأكبرها أثرًا ثلاثة: وهي ثلاثة: غلاف مضغوط بأولوية تحميل، وخط بواجهة بديلة واستباق، وسكربتات مؤجلة لا تزاحم. من يطبق هذا الدليل على صفحاته الثلاث الممثلة يحقق قفزة واضحة قابلة للقياس خلال أسبوع واحد، ثم يحول التطبيق إلى عادة مع كل نشر جديد. الجزء التالي من السلسلة ينتقل لمؤشر التفاعل INP وطريق تحسينه، فتابعها بتسلسلها وستجد موقعك في نهايتها على معايير أداء تضاهي المواقع الكبيرة المستثمرة، وهذا تفاضل حقيقي يراه الزائر أولًا قبل أن يراه أي نظام قياس في العالم.</p></div>
+      <aside class="art-toc" id="tocBox" aria-label="فهرس المقال">
+        <h2>في هذا المقال</h2>
+        <nav id="tocNav"><a href="#ما-الذي-يقيسه-lcp-بالضبط-تعريف-يفهمه-الجميع" class="toc-l2">ما الذي يقيسه LCP بالضبط: تعريف يفهمه الجميع</a><a href="#الخطوة-الأولى-شخص-عنصر-lcp-في-صفحتك" class="toc-l2">الخطوة الأولى: شخّص عنصر LCP في صفحتك</a><a href="#إصلاحات-الصور-أكبر-مكسب-في-معظم-المواقع" class="toc-l2">إصلاحات الصور: أكبر مكسب في معظم المواقع</a><a href="#إصلاحات-الخطوط-منع-الفجوة-البيضاء" class="toc-l2">إصلاحات الخطوط: منع الفجوة البيضاء</a><a href="#ترتيب-التحميل-ماذا-يزاحم-عنصر-lcp-عندك" class="toc-l2">ترتيب التحميل: ماذا يزاحم عنصر LCP عندك</a><a href="#الخادم-وشبكة-التوزيع-الطابق-الذي-يسبق-كل-شيء" class="toc-l2">الخادم وشبكة التوزيع: الطابق الذي يسبق كل شيء</a><a href="#حالة-خاصة-lcp-في-صفحات-الجوال" class="toc-l2">حالة خاصة: LCP في صفحات الجوال</a><a href="#الأتمتة-البسيطة-كيف-تحمي-lcp-بلا-عبء-يومي" class="toc-l2">الأتمتة البسيطة: كيف تحمي LCP بلا عبء يومي</a><a href="#القياس-بعد-الإصلاح-كيف-تتأكد-أنك-كسبت" class="toc-l2">القياس بعد الإصلاح: كيف تتأكد أنك كسبت</a><a href="#سيناريوهات-واقعية-ثلاثة-مواقع-وثلاثة-مسارات" class="toc-l2">سيناريوهات واقعية: ثلاثة مواقع وثلاثة مسارات</a><a href="#أدوات-المرافقة-في-رحلتك-قائمة-قصيرة-تكفي" class="toc-l2">أدوات المرافقة في رحلتك: قائمة قصيرة تكفي</a><a href="#ما-بعد-lcp-خريطة-بقية-السلسلة" class="toc-l2">ما بعد LCP: خريطة بقية السلسلة</a><a href="#أخطاء-شائعة-في-سباق-تحسين-lcp" class="toc-l2">أخطاء شائعة في سباق تحسين LCP</a><a href="#كيف-تختار-صفحاتك-الثلاث-الممثلة-للقياس" class="toc-l2">كيف تختار صفحاتك الثلاث الممثلة للقياس</a><a href="#أسئلة-يطرحها-من-يبدأ-التحسين" class="toc-l2">أسئلة يطرحها من يبدأ التحسين</a><a href="#عنصر-lcp-عندي-نص-وصورة-معا-أيهما-أصلح" class="toc-l3">عنصر LCP عندي نص وصورة معًا، أيهما أصلح؟</a><a href="#هل-يكفي-تحقيق-الهدف-في-الاختبار-المعملية" class="toc-l3">هل يكفي تحقيق الهدف في الاختبار المعملية؟</a><a href="#كم-صفحة-أقيس-قبل-أن-أحكم-على-موقعي" class="toc-l3">كم صفحة أقيس قبل أن أحكم على موقعي؟</a><a href="#هل-تؤثر-الإعلانات-لاحقا-على-lcp-الذي-حسنته" class="toc-l3">هل تؤثر الإعلانات لاحقًا على LCP الذي حسنته؟</a><a href="#خلاصة-الدليل" class="toc-l2">خلاصة الدليل</a></nav>
+      </aside>
+    </div>
+
+    <div class="ad-slot" data-ad-slot="inArticle"></div>
+
+    <footer class="art-foot" id="artFoot">
+      <div class="art-extras" id="artExtras"><section class="series-box" aria-label="سلسلة"><header class="series-head"><span class="series-chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-doc"/></svg>سلسلة</span><b>الأداء وسرعة الموقع</b><span class="series-pos">الجزء 1 من 20</span></header><ol class="series-parts"><li class="here" aria-current="step"><span>الجزء 1 — تحسين LCP خطوة بخطوة: أسرع طريق لرفع سرعة صفحاتك في القياسات الحقيقية<em class="here-tag">أنت هنا</em></span></li></ol><p class="series-soon"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-info"/></svg>بقية الأجزاء قيد الإعداد — تابع المدونة</p><div class="series-nav"><span></span><span></span></div></section>
+<section class="cta-strip" aria-label="تنفّذ ما قرأته دون عناء"><div class="cta-strip-in"><div class="cta-strip-txt"><b>تنفّذ ما قرأته دون عناء</b><p>أقدّم تنفيذًا مدفوعًا لما تشرحه المدونة: تجهيز المواقع لقبول ادسنس، وتحسين السيو، وبناء مواقع سريعة — بنطاق عمل مكتوب وسعر واضح قبل البدء.</p><small>تتواصل معي مباشرة — بلا وسطاء وبلا أي التزام حتى نتفق على التفاصيل</small></div><a class="btn btn-primary" href="/contact.html?service=web-dev">اطلب هذه الخدمة<svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+<section class="offer-zone" aria-label="عروض خاصة الآن"><h2 class="offer-title">عروض خاصة الآن</h2><div class="offer-cards"><article class="offer-card"><span class="offer-badge">الأكثر طلبًا</span><b>تجهيز موقعك لقبول ادسنس</b><p>مراجعة كاملة للمحتوى والصفحات القانونية وبنية التنقل والسرعة، مع خطة محتوى واضحة — حتى تقدّم طلب ادسنس من أقوى وضع ممكن.</p><a class="offer-link" href="/contact.html?service=adsense-prep">اطلب هذه الخدمة<svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a></article><article class="offer-card"><span class="offer-badge">مقاعد محدودة شهريًا</span><b>موقع سريع جاهز للسيو من الصفر</b><p>أبني موقعًا نظيفًا وسريعًا بهيكل سليم ومهيأ للفهرسة وللإعلانات — تسليم ملتزم وتركيب كامل على نطاقك.</p><a class="offer-link" href="/contact.html?service=web-dev">اطلب هذه الخدمة<svg class="ic ic-flip" aria-hidden="true"><use href="#i-arrow"/></svg></a></article></div><p class="offer-note">عروض مني مباشرة — سارية إلى حين انتهاء المقاعد المتاحة</p></section></div>
+      <div id="artTags"><div class="tag-row"><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>LCP</span><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>Core Web Vitals</span><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>تحسين الأداء</span><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>سرعة الموقع</span><span class="chip"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>WebP</span></div></div>
+      <div class="share-row" id="shareRow"><span class="lbl">شارك المقال:</span><button class="btn btn-ghost btn-sm" data-share="copy"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-copy"/></svg>نسخ الرابط</button><a class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer" href="https://wa.me/?text=%D8%AA%D8%AD%D8%B3%D9%8A%D9%86%20LCP%20%D8%AE%D8%B7%D9%88%D8%A9%20%D8%A8%D8%AE%D8%B7%D9%88%D8%A9%3A%20%D8%A3%D8%B3%D8%B1%D8%B9%20%D8%B7%D8%B1%D9%8A%D9%82%20%D9%84%D8%B1%D9%81%D8%B9%20%D8%B3%D8%B1%D8%B9%D8%A9%20%D8%B5%D9%81%D8%AD%D8%A7%D8%AA%D9%83%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AD%D9%82%D9%8A%D9%82%D9%8A%D8%A9%20%E2%80%94%20https%3A%2F%2Fblog.abdallahabas.com%2Fposts%2Fperf-01-lcp.html"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>WhatsApp</a><a class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer" href="https://t.me/share/url?url=https%3A%2F%2Fblog.abdallahabas.com%2Fposts%2Fperf-01-lcp.html&text=%D8%AA%D8%AD%D8%B3%D9%8A%D9%86%20LCP%20%D8%AE%D8%B7%D9%88%D8%A9%20%D8%A8%D8%AE%D8%B7%D9%88%D8%A9%3A%20%D8%A3%D8%B3%D8%B1%D8%B9%20%D8%B7%D8%B1%D9%8A%D9%82%20%D9%84%D8%B1%D9%81%D8%B9%20%D8%B3%D8%B1%D8%B9%D8%A9%20%D8%B5%D9%81%D8%AD%D8%A7%D8%AA%D9%83%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AD%D9%82%D9%8A%D9%82%D9%8A%D8%A9"><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-telegram"/></svg>Telegram</a><a class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=%D8%AA%D8%AD%D8%B3%D9%8A%D9%86%20LCP%20%D8%AE%D8%B7%D9%88%D8%A9%20%D8%A8%D8%AE%D8%B7%D9%88%D8%A9%3A%20%D8%A3%D8%B3%D8%B1%D8%B9%20%D8%B7%D8%B1%D9%8A%D9%82%20%D9%84%D8%B1%D9%81%D8%B9%20%D8%B3%D8%B1%D8%B9%D8%A9%20%D8%B5%D9%81%D8%AD%D8%A7%D8%AA%D9%83%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%B3%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AD%D9%82%D9%8A%D9%82%D9%8A%D8%A9&url=https%3A%2F%2Fblog.abdallahabas.com%2Fposts%2Fperf-01-lcp.html">X</a></div>
+      <p class="license-note"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>المحتوى من كتابة عبدالله عباس — يُسمح بالاقتباس مع ذكر المصدر ورابط صفحة المقال.</span></p>
+      <div class="related">
+        <h2>مقالات ذات صلة</h2>
+        <div class="cards" id="relatedBox"><article class="card"><div class="card-cover"><img src="/assets/images/articles/core-web-vitals-speed/cover.png" alt="" loading="lazy" width="600" height="400"></div><div class="card-body"><span class="chip chip-acc card-cat">تطوير الويب</span><h3><a class="card-link" href="/posts/core-web-vitals-speed.html">Core Web Vitals ببساطة: المؤشرات الثلاثة التي تقرأ بها سرعة موقعك</a></h3><p>شرح عملي لمؤشرات Core Web Vitals الثلاثة: LCP وINP وCLS — ماذا يقيس كل مؤشر، وكيف تقيسه مجانًا، وإصلاحات حقيقية ترفع سرعة موقعك وتجربة زوارك.</p><div class="card-meta"><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><time datetime="2026-10-12">١٢ أكتوبر ٢٠٢٦</time></span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>14 دقيقة قراءة</span></div></div></article><article class="card"><div class="card-cover"><img src="/assets/images/articles/adsense-road-03-essential-pages/cover.png" alt="" loading="lazy" width="600" height="400"></div><div class="card-body"><span class="chip chip-acc card-cat">ادسنس وأرباح جوجل</span><h3><a class="card-link" href="/posts/adsense-road-03-essential-pages.html">الطريق إلى ادسنس (3): الصفحات الضرورية من «عن الموقع» إلى سياسة الخصوصية</a></h3><p>الجزء الثالث من سلسلة الطريق إلى ادسنس: الصفحات الأربع التي يفحصها فريق المراجعة قبل مقالاتك — عن الموقع، التواصل، سياسة الخصوصية، والشروط — بماذا تكتب كل صفحة بالضبط، وأين تضعها، والأخطاء التي تُرفض بسببها.</p><div class="card-meta"><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><time datetime="2026-10-27">٢٧ أكتوبر ٢٠٢٦</time></span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>14 دقيقة قراءة</span></div></div></article><article class="card"><div class="card-cover"><img src="/assets/images/articles/adsense-road-04-niche-choice/cover.png" alt="" loading="lazy" width="600" height="400"></div><div class="card-body"><span class="chip chip-acc card-cat">ادسنس وأرباح جوجل</span><h3><a class="card-link" href="/posts/adsense-road-04-niche-choice.html">الطريق إلى ادسنس (4): اختيار النيتش بين شغفك وما يدفع المعلنون مقابله</a></h3><p>الجزء الرابع من سلسلة الطريق إلى ادسنس: إطار عملي من ثلاثة اختبارات لاختيار النيتش الصحيح — اختبار المعرفة الفعلية، اختبار الطلب البحثي، اختبار الاهتمام الإعلاني — مع تحليل أمثلة واقعية وجدول قرار يمنعك من البدايات الخاطئة.</p><div class="card-meta"><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><time datetime="2026-10-27">٢٧ أكتوبر ٢٠٢٦</time></span><span><svg class="ic " aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>14 دقيقة قراءة</span></div></div></article></div>
+      </div>
+      <div class="ad-slot" data-ad-slot="belowPost"></div>
+  </article>
+
+  <section class="comments-sec" id="commentsSec" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>التعليقات</h2>
+        <span class="chip" id="cCount"></span>
+      </div>
+      <div id="commentsBox">
+        <div id="cAuthSlot"></div>
+        <div id="cListSlot"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="/index.html">
+        <img class="brand-mark" src="/assets/images/logo.svg" alt="" width="37" height="37" aria-hidden="true">
+        <span class="brand-txt"><b>ABDALLAH ABAS</b><i>المدونة</i></span>
+      </a>
+      <p>مدونة عربية عن الربح من الويب والسيو وبناء المواقع — محتوى مختبر وواضح، بلا وعود وهمية.</p>
+      <div class="foot-social" id="footSocial"></div>
+    </div>
+    <nav class="foot-col" aria-label="روابط المدونة">
+      <h3>المدونة</h3>
+      <a href="/index.html">الرئيسية</a>
+      <a href="/archive.html">كل المقالات</a>
+      <a href="/about.html">عن المدونة</a>
+      <a href="/contact.html">اطلب خدمة</a>
+    </nav>
+    <nav class="foot-col" aria-label="الخدمات">
+      <h3>خدماتي</h3>
+      <div id="footServices"></div>
+    </nav>
+    <nav class="foot-col" aria-label="روابط قانونية وأخرى">
+      <h3>قانوني وأدوات</h3>
+      <a href="/privacy.html">سياسة الخصوصية</a>
+      <a href="/terms.html">شروط الاستخدام</a>
+      <a href="/disclosure.html">إفصاح التابعية</a>
+      <a href="/disclaimer.html">إخلاء المسؤولية</a>
+      <a href="/feed.xml">خلاصة RSS</a>
+      <a href="https://tools.abdallahabas.com" target="_blank" rel="noopener noreferrer">منصة الأدوات</a>
+    </nav>
+  </div>
+  <div class="wrap foot-bottom">
+    <p>© <span id="footYear">2026</span> ABDALLAH ABAS — جميع الحقوق محفوظة.</p>
+    <p><a href="https://abdallahabas.com" target="_blank" rel="noopener noreferrer">الموقع الرئيسي</a><span class="sep">·</span><a href="https://blog.abdallahabas.com/sitemap.xml">Sitemap</a></p>
+  </div>
+</footer>
+
+<div class="search-layer" id="searchLayer" hidden role="dialog" aria-modal="true" aria-label="بحث المدونة">
+  <div class="search-panel">
+    <div class="search-bar">
+      <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+      <input id="searchInput" type="search" placeholder="ابحث في المقالات…" autocomplete="off">
+      <button type="button" class="tool-btn" id="searchClose" aria-label="إغلاق البحث"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="search-hints" id="searchHints"><span>جرّب:</span>
+      <button type="button" data-q="ادسنس">ادسنس</button>
+      <button type="button" data-q="سيو">السيو</button>
+      <button type="button" data-q="سرعة">السرعة</button>
+      <button type="button" data-q="محتوى">المحتوى</button>
+    </div>
+    <div class="search-results" id="searchResults" role="listbox" aria-label="نتائج البحث"></div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+<dialog class="aa-dlg" id="aaDlg"><div class="dlg-card" id="aaDlgCard"></div></dialog>
+
+<script src="/js/config.js"></script>
+<script src="/js/ads.js"></script>
+<script src="/js/i18n.js"></script>
+<script src="/js/icons.js"></script>
+<script src="/js/markdown.js"></script>
+<script src="/js/manifest.js"></script>
+<script src="/js/articles.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/comments.js"></script>
+<script src="/js/post-enhance.js"></script>
+</body>
+</html>
